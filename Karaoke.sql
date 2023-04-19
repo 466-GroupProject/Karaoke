@@ -51,7 +51,35 @@ CREATE TABLE Contributor (ContributorID CHAR(20) NOT NULL PRIMARY KEY,
             BDay CHAR(20) NOT NULL,
             Country CHAR(20) NOT NULL);
 
--- INSERT INTO Contributor Values ('','','','');
+INSERT INTO Contributor Values ('1','Morgan Wallen','05/13/1993','USA'); -- Last Night Singer
+INSERT INTO Contributor Values ('2','Ashley','04/29/1977','USA'); -- Last Night Writter
+INSERT INTO Contributor Values ('3','Joey Moi','1975','Canada'); -- Last Night Producer
+INSERT INTO Contributor Values ('4','SZA (Solána Rowe)','11/08/1989','USA'); -- Kill Bill Singer and Writter
+INSERT INTO Contributor Values ('5','Carter Lang','N/A','N/A'); -- Kill Bill Writter and Producer
+INSERT INTO Contributor Values ('6','Doja Cat (Amala Dlamini)','10/21/1995','USA'); -- Kill Bill Singer
+INSERT INTO Contributor Values ('7','Miley Cyrus','11/23/1992','USA'); -- Flowers Singer and Writer
+INSERT INTO Contributor Values ('8','Kid Harpoon','04/20/1982','England'); -- Flowers Producer
+INSERT INTO Contributor Values ('9','Michael Pollack','04/26/1994','USA'); -- Flowers Writter
+INSERT INTO Contributor Values ('10','Metro Boomin (Leland Wayne)','09/16/1993','USA'); -- Creepin' Producer
+INSERT INTO Contributor Values ('11','The Weekend (Abel Tesfaye)','02/16/1990','Canada'); -- Creepin' Singer and Writter - Die For You Singer
+INSERT INTO Contributor Values ('12','21 Savage (Shéyaa Abraham-Joseph)','10/22/1992','England'); -- Creepin' Singer and Writter
+INSERT INTO Contributor Values ('13','DaHeala (Jason Quenneville)','02/23/1982','Canada'); -- Creepin' Producer and Writter
+INSERT INTO Contributor Values ('14','Doc McKinney','08/27/1971','Canada'); -- Die For You Writter and Producer
+INSERT INTO Contributor Values ('15','Cirkut (Henry Walter)','04/23/1986','Canada'); -- Die For You Producer
+INSERT INTO Contributor Values ('16','PinkPantheress','04/18/2001','England'); -- Boy's a Liar Pt. 2 Writter and Producer
+INSERT INTO Contributor Values ('17','Ice Spice (Isis Naija Gaston)','01/01/2000','USA'); -- Boy's a Liar Pt. 2 Writter and Singer
+INSERT INTO Contributor Values ('18','Mura Masa (Alexander Crossan)','04/05/1996','England'); -- Boy's a Liar Pt. 2 Writter
+INSERT INTO Contributor Values ('19','Rema (Divine Ikubor)','05/01/2000','Nigeria'); -- Calm Down Singer and Writter
+INSERT INTO Contributor Values ('20','Selena Gomez','07/22/1992','USA'); -- Calm Down Singer and Writter
+INSERT INTO Contributor Values ('21','London (Michael Hunter)','1999','England'); -- Calm Down Producer
+INSERT INTO Contributor Values ('22','Taylor Swift','12/13/1989','USA'); -- Anti-Hero Singer and Producer and Writter
+INSERT INTO Contributor Values ('23','Jack Antonoff','03/31/1984','USA'); -- Anti-Hero Writter and Producer
+INSERT INTO Contributor Values ('24','Coi Leray (Coi Collins)','05/11/1997','USA'); -- Players Singer and writter
+INSERT INTO Contributor Values ('25','Johnny Goldstien','01/29/1991','Israel'); -- Players Producer and writter
+INSERT INTO Contributor Values ('26','Duke Bootee (Edward Fletcher)','06/06/1951','USA'); -- Players Writter
+INSERT INTO Contributor Values ('27','Bailey Zimmerman','01/27/2000','USA'); -- Rock and a Hard Place Singer
+INSERT INTO Contributor Values ('28','Heath Warren','N/A','USA'); -- Rock and a Hard Place Writter
+INSERT INTO Contributor Values ('29','Austin Shawn','N/A','USA'); -- Rock and a Hard Place Producer
 
 CREATE TABLE SignUp (UsersID CHAR(20) NOT NULL,
             SongID int(20) NOT NULL, 
