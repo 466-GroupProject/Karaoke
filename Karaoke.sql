@@ -41,8 +41,8 @@ INSERT INTO Song VALUES ('30','Rich Flex','Drake','3:59','R&B','456,752,300'); /
 
 CREATE TABLE Users (UsersID CHAR(20) NOT NULL PRIMARY KEY,
             Name CHAR(20) NOT NULL, 
-            PerformerName CHAR(20) NOT NULL,
-             Balance CHAR(20) NOT NULL,
+            StageName CHAR(20) NOT NULL,
+            Balance CHAR(20) NOT NULL,
             Email CHAR(20) NOT NULL,
             PhoneNum CHAR(20) NOT NULL);
 
