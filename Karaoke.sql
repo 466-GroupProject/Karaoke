@@ -43,7 +43,7 @@ CREATE TABLE Users (UsersID CHAR(20) NOT NULL PRIMARY KEY,
             Name CHAR(20) NOT NULL, 
             StageName CHAR(20) NOT NULL,
             Balance CHAR(20) NOT NULL,
-            Email CHAR(20) NOT NULL,
+            Email CHAR(50) NOT NULL,
             PhoneNum CHAR(20) NOT NULL);
 
 CREATE TABLE Contributor (ContributorID CHAR(20) NOT NULL PRIMARY KEY,
