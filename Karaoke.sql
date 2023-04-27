@@ -85,22 +85,28 @@ CREATE TABLE SignUp (UsersID CHAR(20) NOT NULL,
             SongID int(20) NOT NULL, 
             SignUpTime CHAR(20) NOT NULL,
             QueueType CHAR(20) NOT NULL,
-            Cost CHAR(20) NOT NULL,
+            Cost int(20) NOT NULL,
             PRIMARY KEY(UsersID,SongID,SignUpTime), 
             FOREIGN KEY(UsersID) REFERENCES Users(UsersID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
 
 CREATE TABLE Creates (SongID int(20) NOT NULL,
-            ContributorID CHAR(20) NOT NULL,
-            Contribution CHAR(20) NOT NULL,
-            ReleseDate CHAR(20) NOT NULL,
-            PRIMARY KEY(ContributorID,SongID,Contribution),
-            FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
-            FOREIGN KEY(SongID) REFERENCES Song(SongID));
+             ContributorID CHAR(20) NOT NULL,
+             Contribution CHAR(20) NOT NULL,
+             ReleseDate CHAR(20) NOT NULL,
+             PRIMARY KEY(ContributorID,SongID,Contribution),
+             FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
+             FOREIGN KEY(SongID) REFERENCES Song(SongID));
            
+
+INSERT INTO Creates VALUES ('1','1','Singer','2/6/2023');
+INSERT INTO Creates VALUES ('1','2','Writter','2/6/2023');
+INSERT INTO Creates VALUES ('1','3','Producer','2/6/2023');
+
+INSERT INTO Creates VALUES ('2','4','Singer, Writter','12/6/2022');
+INSERT INTO Creates VALUES ('2','5','Writter, Producer','12/6/2022');
+INSERT INTO Creates VALUES ('2','6','Producer','12/6/2022');
 /*
-INSERT INTO Creates VALUES ('1','N/A','N/A','2/6/2023');
-INSERT INTO Creates VALUES ('2','N/A','N/A','12/6/2022');
 INSERT INTO Creates VALUES ('3','N/A','N/A','1/12/2023');
 INSERT INTO Creates VALUES ('4','N/A','N/A','12/13/2022');
 INSERT INTO Creates VALUES ('5','N/A','N/A','2/24/2023');
@@ -135,5 +141,4 @@ SHOW TABLES;
 DESCRIBE Song;
 SELECT * FROM Song;
 SELECT * FROM Creates;
-
--- This is a test comment
+SELECT * FROM Users;
