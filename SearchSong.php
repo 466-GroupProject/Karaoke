@@ -4,8 +4,8 @@
     include("library.php");
     include("Styles.php");
 ?>
+
 <h1 style="text-align: center">Welcome <?php $_POST["StageName"] ?> </h1>
-<h2 style="text-align: right">Balance: $<?php $_POST["Balance"] ?></h2>
 
 <h1 style="text-align: center">Search for a Song</h1> <br>
 
@@ -34,7 +34,7 @@ if( !empty($_POST["Search1"])) {
 	} catch (PDOException $e) {
 		die("<p>Query failed: {$e->getMessage()}</p>\n");
 	}
-}
+}    
 
 ?>
 

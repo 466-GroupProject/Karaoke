@@ -8,7 +8,7 @@
 <body>
 <h1 style="text-align: center">Sign Up Form</h1>
 
-<form action="CreateAccount.php" method='POST'>
+<form action="SearchSong.php" method='POST'>
     <label for="ID"><b>ID</b></label>
     <input type="text" placeholder="Enter ID" name="ID" required>
 
