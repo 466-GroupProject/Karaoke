@@ -1,7 +1,7 @@
 USE z1979224;
 DROP TABLE IF EXISTS SignUp,Creates,Song,Users,Contributor;
 
-CREATE TABLE Song (SongID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Song (SongID int(20) NOT NULL UNIQUE PRIMARY KEY,
             Title CHAR(50) NOT NULL,
             Artist CHAR(50) NOT NULL, 
             Length TIME NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE Users (UsersID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
             Email CHAR(50) NOT NULL UNIQUE,
             PhoneNum CHAR(20) NOT NULL UNIQUE);
 
-CREATE TABLE Contributor (ContributorID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Contributor (ContributorID int(20) NOT NULL UNIQUE  PRIMARY KEY,
             Name CHAR(50) NOT NULL, 
             BDay CHAR(20) NULL,
             Country CHAR(20) NULL DEFU);
