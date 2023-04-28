@@ -2,11 +2,11 @@
  
 <?php
     include("library.php");
-    include("Styles.php");
+    include("Styles.php"); 
+   
 ?>
 
-<h1 style="text-align: center">Welcome <?php $_POST["StageName"] ?> </h1>
-
+<h1 style="text-align: center">Welcome <?php echo $_POST['PhoneNumPicked']; ?> </h1>
 <h1 style="text-align: center">Search for a Song</h1> <br>
 
 <div class="midnav">
@@ -22,7 +22,8 @@
 
 if( !empty($_POST["Search1"])) {
     $newSong = $_POST["Search1"];
-    echo "<h1 style='font-size:200%;'> You Selected the Song Titled $newSong.</h1>";
+    
+    echo "<br> <h1 style='font-size:200%;'> You Searched for a Song or Artist named $newSong.</h1>";
 
     $sql = 'Select * FROM Song WHERE Artist = ? OR Title = ? ';
 	try {
@@ -34,6 +35,23 @@ if( !empty($_POST["Search1"])) {
 	} catch (PDOException $e) {
 		die("<p>Query failed: {$e->getMessage()}</p>\n");
 	}
+
+
+    /*  Trying to Keep the current number on the Search Song Page
+
+    $CurrentNum = $_POST['PhoneNumPicked'];
+    $sql= "SELECT * FROM Users WHERE PhoneNum = ?"; 
+    try {
+        $pdo = new PDO($dsn, $username, $password, $options);
+        $statement = $pdo->prepare($sql);
+        $statement->execute([$CurrentNum]);
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        drawTable($rows);
+    } catch (PDOException $e) {
+         die("<p>Query failed: {$e->getMessage()}</p>\n");
+    }
+    
+    */
 }    
 
 ?>

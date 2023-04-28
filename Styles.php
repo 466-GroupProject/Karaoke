@@ -131,9 +131,6 @@ th, td {
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
 
 .dropdown {
   position: relative;
@@ -146,7 +143,7 @@ th, td {
     background-color: #f1f1f1;
     min-width: 160px;
     overflow: auto;
-    box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
@@ -162,25 +159,7 @@ th, td {
 
 </style>
 
-<script>
-/*https://www.w3schools.com/howto/howto_js_dropdown.asp*/
-function DropDownNames() {
-  document.getElementById("DropDownNames").classList.toggle("show");
-}
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdownC");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
 
 </head>
 </html>

@@ -39,15 +39,15 @@ INSERT INTO Song VALUES ('28','Thank God','Kane Brown','2:54','Country','70,032,
 INSERT INTO Song VALUES ('29','Heart Like a Truck','Lainey Wilson','3:19','Country','66,772,800');
 INSERT INTO Song VALUES ('30','Rich Flex','Drake','3:59','R&B','456,752,300'); /* FT 21 Savage */
 
-CREATE TABLE Users (UsersID CHAR(20) NOT NULL PRIMARY KEY,
-            Name CHAR(20) NOT NULL, 
-            StageName CHAR(20) NOT NULL,
+CREATE TABLE Users (UsersID int(20) NOT NULL PRIMARY KEY,
+            Name CHAR(50) NOT NULL, 
+            StageName CHAR(50) NOT NULL,
             Balance CHAR(20) NOT NULL,
             Email CHAR(50) NOT NULL,
             PhoneNum CHAR(20) NOT NULL);
 
-CREATE TABLE Contributor (ContributorID CHAR(20) NOT NULL PRIMARY KEY,
-            Name CHAR(20) NOT NULL, 
+CREATE TABLE Contributor (ContributorID int(20) NOT NULL PRIMARY KEY,
+            Name CHAR(50) NOT NULL, 
             BDay CHAR(20) NOT NULL,
             Country CHAR(20) NOT NULL);
 
@@ -80,34 +80,27 @@ INSERT INTO Contributor Values ('26','Duke Bootee (Edward Fletcher)','06/06/1951
 INSERT INTO Contributor Values ('27','Bailey Zimmerman','01/27/2000','USA'); -- Rock and a Hard Place Singer
 INSERT INTO Contributor Values ('28','Heath Warren','N/A','USA'); -- Rock and a Hard Place Writter
 INSERT INTO Contributor Values ('29','Austin Shawn','N/A','USA'); -- Rock and a Hard Place Producer
--- INSERT INTO CONTRIBUTOR VALUES ('22', 'Taylor Swift', '12/13/1989', 'USA'); --lavander haze
--- INSERT INTO CONTRIBUTOR VALUES ('23', 'Jack Antonoff', '03/31/1984', 'USA');
-INSERT INTO CONTRIBUTOR VALUES ('30', 'Zoe Kravitz', '12/01/1988', 'USA');
--- INSERT INTO CONTRIBUTOR VALUES ('1', 'Morgan Wallen', '05/13/1993', 'USA'); -- you proof
-INSERT INTO CONTRIBUTOR VALUES ('31', 'Charlie Handsome', 'NULL', 'USA');
--- INSERT INTO CONTRIBUTOR VALUES ('26', 'Joey Moi', 'NULL', 'Canada');
-INSERT INTO CONTRIBUTOR VALUES ('32', 'Harry Styles', '02/01/1994', 'UK'); -- as it was
--- INSERT INTO CONTRIBUTOR VALUES ('28', 'Kid Harpoon', '04/20/1982', 'UK');
-INSERT INTO CONTRIBUTOR VALUES ('33', 'Tyler Johnson', 'NULL', 'USA');
-INSERT INTO CONTRIBUTOR VALUES ('34', 'Toosii', '01/09/2000', 'USA'); -- favorite song
-INSERT INTO CONTRIBUTOR VALUES ('35', 'Adelso', 'NULL', 'USA');
-INSERT INTO CONTRIBUTOR VALUES ('36', 'Tatiana Manaois', '1996', 'USA');
-INSERT INTO CONTRIBUTOR VALUES ('37', 'Miguel', '10/23/1985', 'USA'); -- sure thing
-INSERT INTO CONTRIBUTOR VALUES ('38', 'Happy Perez', 'NULL', 'USA');
-INSERT INTO CONTRIBUTOR VALUES ('39', 'Rod Wave', '08/27/1999', 'USA'); -- fight the feeling
-INSERT INTO CONTRIBUTOR VALUES ('40', 'Eslabon Armado', 'NULL', 'USA'); -- ella balia sola
-INSERT INTO CONTRIBUTOR VALUES ('41', 'Pedro Julian Tovar', '07/22/2002', 'USA');
-INSERT INTO CONTRIBUTOR VALUES ('42', 'David Guetta', '11/07/1967', 'France'); -- Im good (Blue)
-INSERT INTO CONTRIBUTOR VALUES ('43', 'Bebe Rexha', '08/30/1989', 'USA');
-INSERT INTO CONTRIBUTOR VALUES ('44', 'Kamille', 'NULL', 'UK');
-INSERT INTO CONTRIBUTOR VALUES ('45', 'Chris Brown', '05/05/1989', 'USA'); -- under the infulence
-INSERT INTO CONTRIBUTOR VALUES ('46', 'Davido', '11/21/1992', 'Nigeria');
-INSERT INTO CONTRIBUTOR VALUES ('47', 'Kiddominant', '07/13/1992', 'Nigeria');
--- INSERT INTO CONTRIBUTOR VALUES ('1', 'Morgan Wallen', '05/13/1993', 'USA'); -- thought you should know
-INSERT INTO CONTRIBUTOR VALUES ('48', 'Miranda Lambert', '11/10/1983', 'USA');
--- INSERT INTO CONTRIBUTOR VALUES ('26', 'Joey Moi', 'NULL', 'Canada');
+INSERT INTO Contributor VALUES ('30', 'Zoe Kravitz', '12/01/1988', 'USA');
+INSERT INTO Contributor VALUES ('31', 'Charlie Handsome', 'NULL', 'USA');
+INSERT INTO Contributor VALUES ('32', 'Harry Styles', '02/01/1994', 'UK'); -- as it was
+INSERT INTO Contributor VALUES ('33', 'Tyler Johnson', 'NULL', 'USA');
+INSERT INTO Contributor VALUES ('34', 'Toosii', '01/09/2000', 'USA'); -- favorite song
+INSERT INTO Contributor VALUES ('35', 'Adelso', 'NULL', 'USA');
+INSERT INTO Contributor VALUES ('36', 'Tatiana Manaois', '1996', 'USA');
+INSERT INTO Contributor VALUES ('37', 'Miguel', '10/23/1985', 'USA'); -- sure thing
+INSERT INTO Contributor VALUES ('38', 'Happy Perez', 'NULL', 'USA');
+INSERT INTO Contributor VALUES ('39', 'Rod Wave', '08/27/1999', 'USA'); -- fight the feeling
+INSERT INTO Contributor VALUES ('40', 'Eslabon Armado', 'NULL', 'USA'); -- ella balia sola
+INSERT INTO Contributor VALUES ('41', 'Pedro Julian Tovar', '07/22/2002', 'USA');
+INSERT INTO Contributor VALUES ('42', 'David Guetta', '11/07/1967', 'France'); -- Im good (Blue)
+INSERT INTO Contributor VALUES ('43', 'Bebe Rexha', '08/30/1989', 'USA');
+INSERT INTO Contributor VALUES ('44', 'Kamille', 'NULL', 'UK');
+INSERT INTO Contributor VALUES ('45', 'Chris Brown', '05/05/1989', 'USA'); -- under the infulence
+INSERT INTO Contributor VALUES ('46', 'Davido', '11/21/1992', 'Nigeria');
+INSERT INTO Contributor VALUES ('47', 'Kiddominant', '07/13/1992', 'Nigeria');
+INSERT INTO Contributor VALUES ('48', 'Miranda Lambert', '11/10/1983', 'USA');
 
-CREATE TABLE SignUp (UsersID CHAR(20) NOT NULL,
+CREATE TABLE SignUp (UsersID int(20) NOT NULL,
             SongID int(20) NOT NULL, 
             SignUpTime CHAR(20) NOT NULL,
             QueueType CHAR(20) NOT NULL,
@@ -117,12 +110,12 @@ CREATE TABLE SignUp (UsersID CHAR(20) NOT NULL,
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
 
 CREATE TABLE Creates (SongID int(20) NOT NULL,
-             ContributorID CHAR(20) NOT NULL,
-             Contribution CHAR(20) NOT NULL,
-             ReleseDate CHAR(20) NOT NULL,
-             PRIMARY KEY(ContributorID,SongID,Contribution),
-             FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
-             FOREIGN KEY(SongID) REFERENCES Song(SongID));
+            ContributorID int(20) NOT NULL,
+            Contribution CHAR(20) NOT NULL,
+            ReleseDate CHAR(20) NOT NULL,
+            PRIMARY KEY(ContributorID,SongID,Contribution),
+            FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
+            FOREIGN KEY(SongID) REFERENCES Song(SongID));
            
 
 INSERT INTO Creates VALUES ('1','1','Singer','2/6/2023');
@@ -166,10 +159,5 @@ INSERT INTO Creates VALUES ('30','N/A','N/A','11/04/2022');
 SHOW TABLES;
 DESCRIBE Song;
 SELECT * FROM Song;
-SELECT * FROM Creates;
-<<<<<<< HEAD
+SELECT * FROM Contributor;
 SELECT * FROM Users;
-=======
-
--- This is a test comment
->>>>>>> f77bfacafc615afe64afde71ab3edb3eb36fb1eb
