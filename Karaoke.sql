@@ -125,15 +125,39 @@ INSERT INTO Creates VALUES ('1','3','Producer','2/6/2023');
 INSERT INTO Creates VALUES ('2','4','Singer, Writter','12/6/2022');
 INSERT INTO Creates VALUES ('2','5','Writter, Producer','12/6/2022');
 INSERT INTO Creates VALUES ('2','6','Producer','12/6/2022');
+
+INSERT INTO Creates VALUES ('3','7','Signer, Writter','1/12/2023');
+INSERT INTO Creates VALUES ('3','8','Producer','1/12/2023');
+INSERT INTO Creates VALUES ('3','9','Writter','1/12/2023');
+
+INSERT INTO Creates VALUES ('4','10','Producer','12/13/2022');
+INSERT INTO Creates VALUES ('4','11','Singer, Writter','12/13/2022');
+INSERT INTO Creates VALUES ('4','12','Singer, Writter','12/13/2022');
+INSERT INTO Creates VALUES ('4','13','Producer, Writter','12/13/2022');
+
+INSERT INTO Creates VALUES ('5','14','Writter, Producer','2/24/2023');
+INSERT INTO Creates VALUES ('5','15','Producer','2/24/2023');
+
+INSERT INTO Creates VALUES ('6','16','Writter, Producer','12/30/2022');
+INSERT INTO Creates VALUES ('6','17','Signer, Writter','12/30/2022');
+INSERT INTO Creates VALUES ('6','18','Writter','12/30/2022');
+
+INSERT INTO Creates VALUES ('7','19','Signer, Writter','7/25/2022');
+INSERT INTO Creates VALUES ('7','20','Signer, Writter','7/25/2022');
+INSERT INTO Creates VALUES ('7','21','Producer','7/25/2022');
+
+INSERT INTO Creates VALUES ('8','22','Signer, Producer, Writter','10/21/2022');
+INSERT INTO Creates VALUES ('8','23','Writter, Producer','10/21/2022');
+
+INSERT INTO Creates VALUES ('9','24','Signer, Writter','11/30/2022');
+INSERT INTO Creates VALUES ('9','25','Producer, Writter','11/30/2022');
+INSERT INTO Creates VALUES ('9','26','Writter','11/30/2022');
+
+INSERT INTO Creates VALUES ('10','27','Signer','06/10/2022');
+INSERT INTO Creates VALUES ('10','28','Writter','06/10/2022');
+INSERT INTO Creates VALUES ('10','29','Producer','06/10/2022');
 /*
-INSERT INTO Creates VALUES ('3','N/A','N/A','1/12/2023');
-INSERT INTO Creates VALUES ('4','N/A','N/A','12/13/2022');
-INSERT INTO Creates VALUES ('5','N/A','N/A','2/24/2023');
-INSERT INTO Creates VALUES ('6','N/A','N/A','12/30/2022');
-INSERT INTO Creates VALUES ('7','N/A','N/A','7/25/2022');
-INSERT INTO Creates VALUES ('8','N/A','N/A','10/21/2022');
-INSERT INTO Creates VALUES ('9','N/A','N/A','11/30/2022');
-INSERT INTO Creates VALUES ('10','N/A','N/A','06/10/2022');
+
 INSERT INTO Creates VALUES ('11','N/A','N/A','11/29/2022');
 INSERT INTO Creates VALUES ('12','N/A','N/A','07/18/2022');
 INSERT INTO Creates VALUES ('13','N/A','N/A','04/1/2022');
@@ -154,6 +178,7 @@ INSERT INTO Creates VALUES ('27','N/A','N/A','04/22/2022');
 INSERT INTO Creates VALUES ('28','N/A','N/A','09/12/2022');
 INSERT INTO Creates VALUES ('29','N/A','N/A','05/20/2022');
 INSERT INTO Creates VALUES ('30','N/A','N/A','11/04/2022');
+
 */
 
 SHOW TABLES;
