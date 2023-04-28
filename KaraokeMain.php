@@ -5,28 +5,46 @@
     include("Styles.php");
 ?>
 
-<br>
-<h1 style="text-align: center">Welcome To Our Karaoke</h1> <br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h1 style="text-align: center">Welcome To Group 302 Karaoke</h1> <br>
 
 <div class="btn-group" style="width:100%">
 
     <form action="CreateAccount.php" method='POST'>
-        <button style="float: center" type="Submit">Sign Up</button>
+        <button style="margin-right: 100px;" class="button1" type="Submit">Sign Up</button>
+    </form>
+
+    <form action="DJInterface.php" method='POST'>
+        <button type="Submit" class="button3" style="margin-right: 10px;" >I'm The DJ</button>
     </form>
 
     
-    <button style="float: center" onclick="DropDownNames()" class="dropbtn" name="existing">Choose Existing</button>
-    <div id="DropDownNames" class="dropdownC">
-        <form action="SearchSong.php" method='POST'>
-            <button>StageName</button>
-        </form>
+
+    <div class="button2">
+        <button style="margin-right: 10px;" onclick="DropDownNames()" class="dropbtn" name="existing">Choose Existing</button>
+        <div id="DropDownNames" class="dropdownC">
+            <form action="SearchSong.php" method='POST'>
+                <?php
+                    
+                    $sql= "SELECT PhoneNum FROM Users"; 
+                    $pdo = new PDO($dsn, $username, $password, $options);
+                    foreach ($pdo->query($sql) as $row){
+                        $PhoneNum = $row['PhoneNum'];
+                        echo "<button name='PhoneNumPicked' value='$PhoneNum'> $row[PhoneNum] </button>"; 
+                    }
+                    
+                ?>
+            </form>
+        </div>
     </div>
+    
 
-
-    <form action="DJInterface.php" method='POST'>
-        <button type="Submit" style="text-align: center" >I'm The DJ</button>
-    </form>
 </div>
+
+<script>
+
+
+</script>
 
 </body>
 </html>

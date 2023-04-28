@@ -21,17 +21,17 @@
     <br><br>
 
     <label for="Balance"><b>Balance</b></label>
-    <input type="text" placeholder="Enter a Balance" name="Balance"required><label>
+    <input type="number" min="0" max="1000" placeholder="$0-1000" name="Balance"required>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="Email" required>
+    <input type="email" placeholder="Example@gmail.com" name="Email" required>
 
     <label for="PhoneNumber"><b>PhoneNumber</b></label>
-    <input type="text" placeholder="Enter PhoneNumber" name="PhoneNumber" required>
+    <input type="tel" pattern="[0-9]{3})-[0-9]{3}-[0-9]{4}" placeholder="Ex. (123)-456-7890" name="PhoneNumber" required>
 
     <br><br>
-
-    <button type="submit">Sign Up</button>
+    
+    <button onclick="myalert()">Sign Up</button>
 </form>
 
 
@@ -45,27 +45,39 @@
     if( !empty($_POST["ID"]) && !empty($_POST["Name"])  && !empty($_POST["StageName"]) 
     && !empty($_POST["Balance"]) && !empty($_POST["Email"]) && !empty($_POST["PhoneNumber"])){
 
-    $ID = $_POST["ID"];
-    $Name = $_POST["Name"];
-    $PhNum = $_POST["PhoneNumber"];
-    $SName = $_POST["StageName"];
-    $Email = $_POST["Email"];
-    $Balance = $_POST["Balance"];
+        $ID = $_POST["ID"];
+        $Name = $_POST["Name"];
+        $PhNum = $_POST["PhoneNumber"];
+        $SName = $_POST["StageName"];
+        $Email = $_POST["Email"];
+        $Balance = $_POST["Balance"];
 
-    $sql = 'INSERT INTO Users VALUES (?,?,?,?,?,?)';
-    try {
-        $pdo = new PDO($dsn, $username, $password, $options);
-        $statement = $pdo->prepare($sql);
-        $statement->execute([$ID,$Name,$SName,$Balance,$Email,$PhNum]);
-        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-        echo '<meta http-equiv="refresh" content="0">';
-    } catch (PDOException $e) {
-        die("<p>Query failed: {$e->getMessage()}</p>\n");
-    }
-    }
+        $sql = 'INSERT INTO Users VALUES (?,?,?,?,?,?)';
+        try {
+            $pdo = new PDO($dsn, $username, $password, $options);
+            $statement = $pdo->prepare($sql);
+            $statement->execute([$ID,$Name,$SName,$Balance,$Email,$PhNum]);
+            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+            echo '<meta http-equiv="refresh" content="0">';
+        } catch (PDOException $e) {
+            die("<p>Query failed: {$e->getMessage()}</p>\n");
+        }
 
+        
+    }
+    
+    
  /*$ID,$Name,$SName,$Balance,$Email,$PhNum*/
 ?>
+
+<script>
+    function myalert() {
+        if(alert("Successfully Added Your Info!")){
+            //code to take back to home page
+            //window.location = "KaraokeMain.php";
+        }
+    }
+</script>
 
 </body>
 </html>

@@ -4,8 +4,10 @@
 <style>
 
 /* FROM https://www.w3schools.com/howto/howto_css_button_group.asp 
-    Format the buttons
+    
+  Formatting the buttons
 */
+
 .btn-group button {
   background-color: #04AA6D; /* Green background */
   border: 1px solid green; /* Green border */
@@ -13,6 +15,33 @@
   padding: 10px 24px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
   float: left; /* Float the buttons side by side */
+  }
+
+.button1{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.button2{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(+43%, -50%);
+  transform: translate(+43%, -50%);
+}
+
+.button3{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-160%, -50%);
+  transform: translate(-160%, -50%);
 }
 
 .btn-group button:not(:last-child) {
@@ -102,9 +131,6 @@ th, td {
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
 
 .dropdown {
   position: relative;
@@ -117,7 +143,7 @@ th, td {
     background-color: #f1f1f1;
     min-width: 160px;
     overflow: auto;
-    box-shadow: 0px 6px 17px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 10px 17px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
@@ -133,25 +159,7 @@ th, td {
 
 </style>
 
-<script>
-/*https://www.w3schools.com/howto/howto_js_dropdown.asp*/
-function DropDownNames() {
-  document.getElementById("DropDownNames").classList.toggle("show");
-}
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdownC");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
 
 </head>
 </html>
