@@ -10,18 +10,34 @@
     include("library.php");
     include("Styles.php");
 
-    /*
+    
     $sql = 'Select * FROM Song';
-    try {
-        $pdo = new PDO($dsn, $username, $password, $options);
-        $statement = $pdo->prepare($sql);
-        $statement->execute();
-        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-        drawTable($rows);
-    } catch (PDOException $e) {
+    try 
+    {
+        //connect to database
+        $dsn = "mysql:host=courses; dbname=z1696323";
+        $pdo = new PDO($dsn, $username, $password);
+    
+        //run query
+        $rs = $pdo->query("Select Name, StageName, Song.SongID, Title, Artist FROM Song, User, SignUp WHERE Song.SongID = SignUp.SongID AND SignUp.UserID = User.UserID AND QueueType = 'F';");
+        $rows = $rs->fetchAll(PDO::FETCH_ASSOC);
+            
+        //label and draw table
+        echo "<h1> Free Queue </h1>" ;	
+        draw_table($rows);
+    
+        //run querry
+        $rs = $pdo->query("Select Name, StageName, Song.SongID, Title, Artist FROM Song, User, SignUp WHERE Song.SongID = SignUp.SongID AND SignUp.UserID = User.UserID AND QueueType = 'P';");
+        $rows = $rs->fetchAll(PDO::FETCH_ASSOC);
+            
+        //label and draw table
+        echo "<h1> Priority Queue </h1>";
+        draw_table($rows);
+    } 
+    catch (PDOException $e) {
         die("<p>Query failed: {$e->getMessage()}</p>\n");
     }
-    */
+    
 ?>
 
 </html>
