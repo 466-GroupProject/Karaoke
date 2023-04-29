@@ -116,10 +116,22 @@ CREATE TABLE SignUp (UsersID int(20) NOT NULL,
             SongID int(20) NOT NULL, 
             SignUpTime TIMESTAMP NOT NULL,
             QueueType CHAR(20) NOT NULL,
-            Cost int(20) NOT NULL,
+            Cost int(20) NULL,
             PRIMARY KEY(UsersID,SongID,SignUpTime), 
             FOREIGN KEY(UsersID) REFERENCES Users(UsersID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
+
+INSERT INTO SignUp VALUES ('1','1','2023-04-29 13:54:00','F','NULL'); 
+INSERT INTO SignUp VALUES ('1','10','2023-04-29 13:55:00','P','1'); 
+INSERT INTO SignUp VALUES ('2','11','2023-04-29 13:56:00','F','NULL'); 
+INSERT INTO SignUp VALUES ('2','13','2023-04-29 13:57:00','P','5'); 
+INSERT INTO SignUp VALUES ('4','4','2023-04-29 13:58:00','F','NULL'); 
+INSERT INTO SignUp VALUES ('4','2','2023-04-29 13:59:00','P','10'); 
+INSERT INTO SignUp VALUES ('10','21','2023-04-29 14:00:00','F','NULL'); 
+INSERT INTO SignUp VALUES ('10','27','2023-04-29 14:01:00','P','3'); 
+INSERT INTO SignUp VALUES ('7','29','2023-04-29 14:02:00','F','NULL'); 
+INSERT INTO SignUp VALUES ('7','6','2023-04-29 14:03:00','P','2'); 
+
 
 CREATE TABLE Creates (SongID int(20) NOT NULL,
             ContributorID int(20) NOT NULL,
