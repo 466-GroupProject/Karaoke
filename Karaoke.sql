@@ -46,6 +46,8 @@ CREATE TABLE Users (UsersID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
             Email CHAR(50) NOT NULL UNIQUE,
             PhoneNum CHAR(20) NOT NULL UNIQUE);
 
+
+
 CREATE TABLE Contributor (ContributorID int(20) NOT NULL UNIQUE  PRIMARY KEY,
             Name CHAR(50) NOT NULL, 
             BDay CHAR(20) NULL,
@@ -156,18 +158,45 @@ INSERT INTO Creates VALUES ('9','26','Writter','11/30/2022');
 INSERT INTO Creates VALUES ('10','27','Signer','06/10/2022');
 INSERT INTO Creates VALUES ('10','28','Writter','06/10/2022');
 INSERT INTO Creates VALUES ('10','29','Producer','06/10/2022');
-/*
 
-INSERT INTO Creates VALUES ('11','N/A','N/A','11/29/2022');
-INSERT INTO Creates VALUES ('12','N/A','N/A','07/18/2022');
-INSERT INTO Creates VALUES ('13','N/A','N/A','04/1/2022');
-INSERT INTO Creates VALUES ('14','N/A','N/A','02/17/2023');
-INSERT INTO Creates VALUES ('15','N/A','N/A','11/26/2010');
-INSERT INTO Creates VALUES ('16','N/A','N/A','03/31/2023');
-INSERT INTO Creates VALUES ('17','N/A','N/A','N/A');
-INSERT INTO Creates VALUES ('18','N/A','N/A','07/26/2022');
-INSERT INTO Creates VALUES ('19','N/A','N/A','08/06/2022');
-INSERT INTO Creates VALUES ('20','N/A','N/A','11/07/2022');
+
+INSERT INTO Creates VALUES ('11','22','Singer, Writer','11/29/2022');
+INSERT INTO Creates VALUES ('11','23','Writer, Producer','11/29/2022');
+INSERT INTO Creates VALUES ('11','30','Writer','11/29/2022');
+
+INSERT INTO Creates VALUES ('12','1','Singer','07/18/2022');
+INSERT INTO Creates VALUES ('12','31','Writer','07/18/2022');
+INSERT INTO Creates VALUES ('12','3','Producer','07/18/2022');
+
+INSERT INTO Creates VALUES ('13','32','Singer, Writer','04/1/2022');
+INSERT INTO Creates VALUES ('13','8','Writer','04/1/2022');
+INSERT INTO Creates VALUES ('13','33','Producer','04/1/2022');
+
+INSERT INTO Creates VALUES ('14','34','Singer','02/17/2023');
+INSERT INTO Creates VALUES ('14','35','Writer','02/17/2023');
+INSERT INTO Creates VALUES ('14','36','Producer','02/17/2023');
+
+INSERT INTO Creates VALUES ('15','37','Singer','11/26/2010');
+INSERT INTO Creates VALUES ('15','38','Writer, Producer','11/26/2010');
+
+INSERT INTO Creates VALUES ('16','39','Singer, Writer, Producer','03/31/2023');
+
+INSERT INTO Creates VALUES ('17','40','Singer, Writer','NULL');
+INSERT INTO Creates VALUES ('17','41','Writer, Producer','NULL');
+
+INSERT INTO Creates VALUES ('18','42','Writer, Producer','07/26/2022');
+INSERT INTO Creates VALUES ('18','43','Singer','07/26/2022');
+INSERT INTO Creates VALUES ('18','44','Producer','07/26/2022');
+
+INSERT INTO Creates VALUES ('19','45','Singer','08/06/2022');
+INSERT INTO Creates VALUES ('19','46','Writer','08/06/2022');
+INSERT INTO Creates VALUES ('19','47','Producer','08/06/2022');
+
+INSERT INTO Creates VALUES ('20','1','Singer','11/07/2022');
+INSERT INTO Creates VALUES ('20','3','Producer','11/07/2022');
+INSERT INTO Creates VALUES ('20','48','Writer','11/07/2022');
+
+/*
 INSERT INTO Creates VALUES ('21','N/A','N/A','03/03/2023');
 INSERT INTO Creates VALUES ('22','N/A','N/A','09/22/2022');
 INSERT INTO Creates VALUES ('23','N/A','N/A','10/12/2022');
