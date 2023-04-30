@@ -35,17 +35,26 @@
         $statement = $pdo->prepare($sql);
         $statement->execute();
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-            
+
         // label Table
         echo "<h1> Free Queue </h1>" ;
-        
+
         // Button to remove top entry of the table
         echo "<form action=\"DJInterface.php\" method=\"POST\">";
         echo "<input type=\"submit\" name=\"Free\" value=\"Play Next Free Queue Song\"/>";
         echo "</form>";
 
+        if (empty($rows))
+        {
+            echo "<h3> There is currently no one signed up to sing in the free queue. </h3>";
+        }
+        else
+        {
+
         // print free Table
         draw_table($rows);
+
+        }
         
         // if button is pressed
         if(isset($_POST['Free'])) 
@@ -59,7 +68,7 @@
             $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             // refresh page to display new results
-            // echo '<meta http-equiv="refresh" content="0">';
+            echo '<meta http-equiv="refresh" content="0">';
         }
 
         $Sorted = (isset($_POST['Time'])) ? "Time" : "Cost";
@@ -168,10 +177,16 @@
         $statement = $pdo->prepare($sql);
         $statement->execute();
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-        
-        // Print priority table
-        draw_table($rows);
-        
+
+        if (empty($rows))
+        {
+            echo "<h3> There is currently no one signed up to sing in the free queue. </h3>";
+        }
+        else
+        {
+            // Print priority table
+            draw_table($rows);
+        }
     } 
     catch (PDOException $e) {
         die("<p>Query failed: {$e->getMessage()}</p>\n");
