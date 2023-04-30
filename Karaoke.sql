@@ -156,30 +156,68 @@ INSERT INTO Creates VALUES ('9','26','Writter','11/30/2022');
 INSERT INTO Creates VALUES ('10','27','Signer','06/10/2022');
 INSERT INTO Creates VALUES ('10','28','Writter','06/10/2022');
 INSERT INTO Creates VALUES ('10','29','Producer','06/10/2022');
-/*
 
-INSERT INTO Creates VALUES ('11','N/A','N/A','11/29/2022');
-INSERT INTO Creates VALUES ('12','N/A','N/A','07/18/2022');
-INSERT INTO Creates VALUES ('13','N/A','N/A','04/1/2022');
-INSERT INTO Creates VALUES ('14','N/A','N/A','02/17/2023');
-INSERT INTO Creates VALUES ('15','N/A','N/A','11/26/2010');
-INSERT INTO Creates VALUES ('16','N/A','N/A','03/31/2023');
-INSERT INTO Creates VALUES ('17','N/A','N/A','N/A');
-INSERT INTO Creates VALUES ('18','N/A','N/A','07/26/2022');
-INSERT INTO Creates VALUES ('19','N/A','N/A','08/06/2022');
-INSERT INTO Creates VALUES ('20','N/A','N/A','11/07/2022');
-INSERT INTO Creates VALUES ('21','N/A','N/A','03/03/2023');
-INSERT INTO Creates VALUES ('22','N/A','N/A','09/22/2022');
-INSERT INTO Creates VALUES ('23','N/A','N/A','10/12/2022');
-INSERT INTO Creates VALUES ('24','N/A','N/A','03/03/2023');
-INSERT INTO Creates VALUES ('25','N/A','N/A','10/17/2022');
-INSERT INTO Creates VALUES ('26','N/A','N/A','04/01/2023');
-INSERT INTO Creates VALUES ('27','N/A','N/A','04/22/2022');
-INSERT INTO Creates VALUES ('28','N/A','N/A','09/12/2022');
-INSERT INTO Creates VALUES ('29','N/A','N/A','05/20/2022');
-INSERT INTO Creates VALUES ('30','N/A','N/A','11/04/2022');
+INSERT INTO Creates VALUES ('11','22','Singer, Writer','11/29/2022');
+INSERT INTO Creates VALUES ('11','23','Writer, Producer','11/29/2022');
+INSERT INTO Creates VALUES ('11','30','Writer','11/29/2022');
 
-*/
+INSERT INTO Creates VALUES ('12','1','Singer','07/18/2022');
+INSERT INTO Creates VALUES ('12','31','Writer','07/18/2022');
+INSERT INTO Creates VALUES ('12','3','Producer','07/18/2022');
+
+INSERT INTO Creates VALUES ('13','32','Singer, Writer','04/1/2022');
+INSERT INTO Creates VALUES ('13','8','Writer','04/1/2022');
+INSERT INTO Creates VALUES ('13','33','Producer','04/1/2022');
+
+INSERT INTO Creates VALUES ('14','34','Singer','02/17/2023');
+INSERT INTO Creates VALUES ('14','35','Writer','02/17/2023');
+INSERT INTO Creates VALUES ('14','36','Producer','02/17/2023');
+
+INSERT INTO Creates VALUES ('15','37','Singer','11/26/2010');
+INSERT INTO Creates VALUES ('15','38','Writer, Producer','11/26/2010');
+
+INSERT INTO Creates VALUES ('16','39','Singer, Writer, Producer','03/31/2023');
+
+INSERT INTO Creates VALUES ('17','40','Singer, Writer','NULL');
+INSERT INTO Creates VALUES ('17','41','Writer, Producer','NULL');
+
+INSERT INTO Creates VALUES ('18','42','Writer, Producer','07/26/2022');
+INSERT INTO Creates VALUES ('18','43','Singer','07/26/2022');
+INSERT INTO Creates VALUES ('18','44','Producer','07/26/2022');
+
+INSERT INTO Creates VALUES ('19','45','Singer','08/06/2022');
+INSERT INTO Creates VALUES ('19','46','Writer','08/06/2022');
+INSERT INTO Creates VALUES ('19','47','Producer','08/06/2022');
+
+INSERT INTO Creates VALUES ('20','1','Singer','11/07/2022');
+INSERT INTO Creates VALUES ('20','3','Producer','11/07/2022');
+INSERT INTO Creates VALUES ('20','48','Writer','11/07/2022');
+
+INSERT INTO Creates VALUES ('21','1','Singer, Writter','03/03/2023'); -- Thinkin' Bout Me, Morgan Wallen
+INSERT INTO Creates VALUES ('21','3','Producer','03/03/2023');
+INSERT INTO Creates VALUES ('22','49','Singer, Writter, Producer','09/22/2022'); -- Unholy, Sam Smith
+INSERT INTO Creates VALUES ('22','50','Singer, Writter, Producer','09/22/2022');
+INSERT INTO Creates VALUES ('23','51','Singer','10/12/2022'); -- Escapism, RAYE
+INSERT INTO Creates VALUES ('23','52','Writter','10/12/2022');
+INSERT INTO Creates VALUES ('24','1','Singer, Writter','03/03/2023'); -- One Thing At A Time, Morgan Wallen
+INSERT INTO Creates VALUES ('24','3','Producer','03/03/2023')
+INSERT INTO Creates VALUES ('25','53','Signer, Writter','10/17/2022'); -- Just Wanna Rock, Lil Uzi Vert
+INSERT INTO Creates VALUES ('26','54','Signer','04/01/2023'); -- La Bebe, Yng Lvcas
+INSERT INTO Creates VALUES ('27','55','Producer','04/22/2022'); -- Something in the Orange, Zach Bryan
+INSERT INTO Creates VALUES ('27','56','Signer','04/22/2022');
+INSERT INTO Creates VALUES ('28','57','Writter','09/12/2022'); -- Thank God, Kane Brown
+INSERT INTO Creates VALUES ('28','58','Producer','09/12/2022');
+INSERT INTO Creates VALUES ('28','59','Signer','09/12/2022');
+INSERT INTO Creates VALUES ('29','60','Writter','05/20/2022'); -- Heart Like a Truck, Lainey Wilson
+INSERT INTO Creates VALUES ('29','61','Signer','05/20/2022');
+INSERT INTO Creates VALUES ('30','62','Signer, Writter','11/04/2022'); -- Rich Flex, Drake
+INSERT INTO Creates VALUES ('30','12','Signer, Writter','11/04/2022'); 
+INSERT INTO Creates VALUES ('30','63', 'Producer', '11/04/2022');
+
+
+
+
+
 
 SHOW TABLES;
 DESCRIBE Song;
