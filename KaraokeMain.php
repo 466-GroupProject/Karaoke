@@ -21,7 +21,7 @@
     <div class="button2">
         <button style="margin-right: 10px;" onclick="DropDownNames()" class="dropbtn" name="existing">Choose Existing</button>
         <div id="DropDownNames" class="dropdownC">
-            <form action="SearchSong.php" method='POST'>
+            <form action="choosesearch.php" method='POST'>
                 <?php
                     
                     $sql= "SELECT PhoneNum,UsersID FROM Users ORDER BY UsersID ASC"; 
