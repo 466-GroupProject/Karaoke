@@ -9,10 +9,7 @@
 <?php
     include("library.php");
     include("Styles.php");
-    include("hiddeninfo.php");
 
-    
-    $sql = 'Select * FROM Song';
     try 
     {
         //connect to database
@@ -20,7 +17,7 @@
         $pdo = new PDO($dsn, $username, $password);
     
         //run query
-        $rs = $pdo->query("Select Name, StageName, Song.SongID, Title, Artist FROM Song, Users, SignUp WHERE Song.SongID = SignUp.SongID AND SignUp.UsersID = Users.UsersID AND QueueType = 'F';");
+        $rs = $pdo->query("Select Name, StageName, Song.SongID, Title, Artist, SignUpTime FROM Song, Users, SignUp WHERE Song.SongID = SignUp.SongID AND SignUp.UsersID = Users.UsersID AND QueueType = 'F' ORDER BY SignUpTime ASC;");
         $rows = $rs->fetchAll(PDO::FETCH_ASSOC);
             
         //label and draw table
@@ -28,7 +25,7 @@
         draw_table($rows);
     
         //run querry
-        $rs = $pdo->query("Select Name, StageName, Song.SongID, Title, Artist, Cost FROM Song, Users, SignUp WHERE Song.SongID = SignUp.SongID AND SignUp.UsersID = Users.UsersID AND QueueType = 'P';");
+        $rs = $pdo->query("Select Name, StageName, Song.SongID, Title, Artist, SignUpTime, Cost FROM Song, Users, SignUp WHERE Song.SongID = SignUp.SongID AND SignUp.UsersID = Users.UsersID AND QueueType = 'P' ORDER BY Cost DESC;");
         $rows = $rs->fetchAll(PDO::FETCH_ASSOC);
             
         //label and draw table
