@@ -25,7 +25,7 @@
 <div class="midnav">
     <div class="search-container">
         <form action="SearchSong.php" method='POST'>
-            <input type="text" placeholder="Search for a Artist or a Title" name="Search1" required>
+            <input type="text" placeholder="Search for a Song Title" name="Search1" required>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -36,15 +36,27 @@
 if( !empty($_POST["Search1"])) {
     $newSong = $_POST["Search1"];
     
-    echo "<br> <h1 style='font-size:200%;'> You Searched for a Song or Artist named $newSong.</h1>";
+    echo "<br> <h1 style='font-size:200%;'> You Searched for a Song Titled $newSong.</h1>";
 
-    $sql = 'Select * FROM Song WHERE Artist = ? OR Title = ? ';
+    $sql = "SELECT * 
+            FROM Song, Contributor, Creates 
+            WHERE Song.SongID = Creates.SongID
+            AND Creates.ContributorID = Contributor.ContributorID
+            AND Title = ? ;";
 	try {
         $pdo = new PDO($dsn, $username, $password, $options);
         $statement = $pdo->prepare($sql);
-        $statement->execute([$newSong,$newSong]);
+        $statement->execute([$newSong,]);
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-        drawTable($rows);
+
+        if(empty($rows))
+        {
+            echo "<h3> There were no results for $newSong </h3>";
+        }
+        else
+        {
+            drawTable($rows);
+        }
 	} catch (PDOException $e) {
 		die("<p>Query failed: {$e->getMessage()}</p>\n");
 	}
