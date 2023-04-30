@@ -6,13 +6,14 @@
     if(isset($_POST['PhoneNumPicked']))
     {
         $_SESSION['post-data'] = $_POST['PhoneNumPicked'];
-        $_SESSION['post-data3']= $_POST['UserIDNum'];
+        
+        $_SESSION['post-data3'] = substr($_SESSION['post-data'],15,15);
     }
 ?>
 
 <html><head><title>Search Songs</title></head><body>
 
-<h1 style="text-align: center">Welcome <?php echo $_SESSION['post-data']; ?> this is your ID: <?php echo $_SESSION['post-data3']; ?></h1>
+<h1 style="text-align: center">Welcome <?php echo substr($_SESSION['post-data'],0,15);?> your ID is: <?php echo $_SESSION['post-data3'];?> </h1>
 <div class="btn-group">
     <form action="KaraokeMain.php" method="POST">
         <button style="margin-right: 650px;" onclick="history.go(-1);" > Back </button>
@@ -69,41 +70,42 @@ if( !empty($_POST["Search1"])) {
 </div>
 
 <?php 
-    
-    if(!empty($_POST["EnterSongID"])) {
+    //Does NOT insert into sign up table
+    if( !empty($_POST["EnterSongID"]) ) {
+
         $SID = $_POST["EnterSongID"];
-        
+        $UID = $_SESSION['post-data3'];
+
         if(isset($_POST['FreeQ'])){
-            $sql = 'INSERT INTO SignUp (UserId,SongID,SignUpTime,QueueType,Cost) VALUES ("1","30","2023-04-29 113:54:00","F",NULL)';
-           
-            try {
+            $sql = 'INSERT INTO SignUp (UsersId,SongID,SignUpTime,QueueType,Cost)
+                     VALUES (?,?,"2023-04-29 11:54:00","F",NULL)';
+           try {
                 $pdo = new PDO($dsn, $username, $password, $options);
                 $statement = $pdo->prepare($sql);
-                $statement->execute();
+                $statement->execute([$UID,$SID]);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-                echo '<meta http-equiv="refresh" content="0">';
+                
             } catch (PDOException $e) {
                 die("<p>Query failed: {$e->getMessage()}</p>\n");
             }
 
-        }else if (isset($_POST['PaidQ'])){
-            $QT = 'P';
+        }else if (isset($_POST['PaidQ']) && !empty($_POST["EnterAmount"]) ){
+
             $AmountP = $_POST['PaidQ'];
-            $sql = 'INSERT INTO SignUp (UserId,SongID,QueueType,Cost) VALUES (?,?,?,?,?)';
-
+            $sql = 'INSERT INTO SignUp (UserId,SongID,SignUpTime,QueueType,Cost) VALUES (?,?,"2023-04-29 11:54:00","P",?)';
             try {
                 $pdo = new PDO($dsn, $username, $password, $options);
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$Name,$SName,$Balance,$Email,$PhNum]);
+                $statement->execute([$UID,$SID,$AmountP]);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-                echo '<meta http-equiv="refresh" content="0">';
+                
             } catch (PDOException $e) {
                 die("<p>Query failed: {$e->getMessage()}</p>\n");
             }
-
         }else{
-            echo "Niether Happened";
-        }  
+            $sql = "SELECT * FROM SignUp";
+        }
+
     }
 
 ?>

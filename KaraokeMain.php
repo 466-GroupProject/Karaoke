@@ -30,8 +30,9 @@
                     foreach ($pdo->query($sql) as $row){
                         $PhoneNum = $row['PhoneNum'];
                         $IDNum = $row['UsersID'];
-                        echo "<input type='hidden' name='UserIDNum' value='$IDNum'/>"; // return ID: 10 no matter what I click 
+                        
                         echo "<button name='PhoneNumPicked' value='$PhoneNum $IDNum'> $row[PhoneNum]</button>"; 
+                       
                     }
                     
                 ?>

@@ -235,5 +235,5 @@ DESCRIBE Song;
 SELECT * FROM Song;
 SELECT * FROM Contributor;
 SELECT * FROM Users;
-SELECT * FROM SignUp;
 SELECT * FROM Creates;
+SELECT * FROM SignUp;
