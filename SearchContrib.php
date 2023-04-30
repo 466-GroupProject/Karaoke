@@ -1,14 +1,14 @@
 <?php
-    session_start();
-    include("library.php");
-    include("Styles.php"); 
-
-    if(isset($_POST['PhoneNumPicked']))
-    {
-        $_SESSION['post-data'] = $_POST['PhoneNumPicked'];//all data sent
-        $_SESSION['post-data3'] = substr($_SESSION['post-data'],14,15);//ID
-        //var_dump($_SESSION);
-    }
+     session_start();
+     include("library.php");
+     include("Styles.php"); 
+ 
+     if(isset($_POST['PhoneNumPicked']))
+     {
+         $_SESSION['post-data'] = $_POST['PhoneNumPicked'];//all data sent
+         $_SESSION['post-data3'] = substr($_SESSION['post-data'],14,15);//ID
+         //var_dump($_SESSION);
+     }
 ?>
 
 <html><head><title>Search Songs</title></head><body>
@@ -20,12 +20,12 @@
     </form>
 
 </div>
-<h1 style="text-align: center">Search for a Song</h1> <br>
+<h1 style="text-align: center">Search for a Musician</h1> <br>
 
 <div class="midnav">
     <div class="search-container">
-        <form action="SearchSong.php" method='POST'>
-            <input type="text" placeholder="Search for a Artist or a Title" name="Search1" required>
+        <form action="SearchContrib.php" method='POST'>
+            <input type="text" placeholder="Search for a Musician" name="Search1" required>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -36,15 +36,13 @@
 if( !empty($_POST["Search1"])) {
     $newSong = $_POST["Search1"];
     
-    echo "<br> <h1 style='font-size:200%;'> You Searched for a Song or Title named $newSong.</h1>";
+    echo "<br> <h1 style='font-size:200%;'> You Searched for a Musician Named $newSong.</h1>";
 
-    //$sql = 'Select * FROM Song WHERE Artist = ? OR Title = ? ';
     $sql = "SELECT * 
             FROM Song, Contributor, Creates 
             WHERE Song.SongID = Creates.SongID
             AND Creates.ContributorID = Contributor.ContributorID
-            AND Title = ? ;";
-
+            AND Name = ? ;";
 	try {
         $pdo = new PDO($dsn, $username, $password, $options);
         $statement = $pdo->prepare($sql);
@@ -56,13 +54,12 @@ if( !empty($_POST["Search1"])) {
         }else { 
             drawTable($rows);
         }
-
 	} catch (PDOException $e) {
 		die("<p>Query failed: {$e->getMessage()}</p>\n");
 	}
 
 } else {
-    echo "<br> <h1 style='font-size:200%;'> Please Enter an Song or a Title. </h1>";
+    echo "<br> <h1 style='font-size:200%;'> Please Enter an Artist or a Title. </h1>";
 }
 
 ?>
@@ -72,7 +69,7 @@ if( !empty($_POST["Search1"])) {
 
 <div class="midnav">
     <div class="search-container2">
-        <form action="SearchSong.php" method='POST'>
+        <form action="SearchContrib.php" method='POST'>
             <input type="text" placeholder="Enter SongID" name="EnterSongID" required>
             <button type="submit" name="FreeQ">Free</button>
             <button type="submit" name="PaidQ">Paid</button>
@@ -120,6 +117,7 @@ if( !empty($_POST["Search1"])) {
         }
 
     }
+
 
 ?>
 

@@ -1,14 +1,14 @@
 USE z1979224;
 DROP TABLE IF EXISTS SignUp,Creates,Song,Users,Contributor;
 
-CREATE TABLE Song (SongID int(20) NOT NULL UNIQUE PRIMARY KEY,
+CREATE TABLE Song (SongID int NOT NULL UNIQUE PRIMARY KEY,
             Title CHAR(50) NOT NULL,
             Artist CHAR(50) NOT NULL, 
             Length TIME NOT NULL,
             Genre CHAR(20) NOT NULL,
-            StreamNum int(20) NOT NULL);
+            StreamNum char(20) NOT NULL);
 
-INSERT INTO Song VALUES ('1','Last Night','Morgan Wallen',00:0'2:45','Country','191,271,400');
+INSERT INTO Song VALUES ('1','Last Night','Morgan Wallen','00:02:45','Country','191,271,400');
 INSERT INTO Song VALUES ('2','Kill Bill','SZA','00:02:35','POP','814,149,700');
 INSERT INTO Song VALUES ('3','Flowers','Miley Cyrus','00:03:21','POP','904,525,900');
 INSERT INTO Song VALUES ('4','Creepin\'','Metro Boomin','00:3:42','R&B','580,369,400'); /* FT 21 Savage AND The Weekend */
@@ -46,10 +46,22 @@ CREATE TABLE Users (UsersID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
             Email CHAR(50) NOT NULL UNIQUE,
             PhoneNum CHAR(20) NOT NULL UNIQUE);
 
+INSERT INTO Users VALUES ('1','Tim','Timmy','25','Timmy@gmail.com','(847)-224-8765'); 
+INSERT INTO Users VALUES ('2','Sarah','NULL','10','SarahS99@yahoo.com','(224)-637-2365'); 
+INSERT INTO Users VALUES ('3','Matthew','Mighty Matt','30','MattySmith@gmail.com','(312)-548-7351'); 
+INSERT INTO Users VALUES ('4','Victoria','Vicky','25','Vicky98@gmail.com','(708)-761-2997'); 
+INSERT INTO Users VALUES ('5','Jeffery','Jeff','50','JeffM56@yahoo.com','(847)-609-6516'); 
+INSERT INTO Users VALUES ('6','Jennifer','Jenny Jams','23','JJ123@gmail.com','(224)-519-2573'); 
+INSERT INTO Users VALUES ('7','George','NULL','17','GeorgeBird@yahoo.com','(708)-582-0709'); 
+INSERT INTO Users VALUES ('8','Tina','Big T','4','TinaSings@gmail.com','(312)-561-1764'); 
+INSERT INTO Users VALUES ('9','Kyle','King Kyle','64','KyleJohnson89@gmail.com','(224)-861-0954'); 
+INSERT INTO Users VALUES ('10','Blair','Baddie B','105','BlairW@yahoo.com','(847)-910-9812');  
+
+
 CREATE TABLE Contributor (ContributorID int(20) NOT NULL UNIQUE  PRIMARY KEY,
             Name CHAR(50) NOT NULL, 
             BDay CHAR(20) NULL,
-            Country CHAR(20) NULL DEFU);
+            Country CHAR(20) NULL);
 
 INSERT INTO Contributor Values ('1','Morgan Wallen','05/13/1993','USA'); -- Last Night Singer
 INSERT INTO Contributor Values ('2','Ashley','04/29/1977','USA'); -- Last Night Writter
@@ -104,15 +116,27 @@ CREATE TABLE SignUp (UsersID int(20) NOT NULL,
             SongID int(20) NOT NULL, 
             SignUpTime TIMESTAMP NOT NULL,
             QueueType CHAR(20) NOT NULL,
-            Cost int(20) NOT NULL,
+            Cost int(20) NULL,
             PRIMARY KEY(UsersID,SongID,SignUpTime), 
             FOREIGN KEY(UsersID) REFERENCES Users(UsersID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
 
+INSERT INTO SignUp VALUES ('1','1','2023-04-29 13:54:00','F',NULL); 
+INSERT INTO SignUp VALUES ('1','10','2023-04-29 13:55:00','P','1'); 
+INSERT INTO SignUp VALUES ('2','11','2023-04-29 13:56:00','F',NULL); 
+INSERT INTO SignUp VALUES ('2','13','2023-04-29 13:57:00','P','5'); 
+INSERT INTO SignUp VALUES ('4','4','2023-04-29 13:58:00','F',NULL); 
+INSERT INTO SignUp VALUES ('4','2','2023-04-29 13:59:00','P','10'); 
+INSERT INTO SignUp VALUES ('10','21','2023-04-29 14:00:00','F',NULL); 
+INSERT INTO SignUp VALUES ('10','27','2023-04-29 14:01:00','P','3'); 
+INSERT INTO SignUp VALUES ('7','29','2023-04-29 14:02:00','F',NULL); 
+INSERT INTO SignUp VALUES ('7','6','2023-04-29 14:03:00','P','2'); 
+
+
 CREATE TABLE Creates (SongID int(20) NOT NULL,
             ContributorID int(20) NOT NULL,
-            Contribution CHAR(20) NOT NULL,
-            ReleseDate DATE NULL,
+            Contribution CHAR(30) NOT NULL,
+            ReleaseDate CHAR(20) NULL,
             PRIMARY KEY(ContributorID,SongID,Contribution),
             FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
@@ -157,6 +181,10 @@ INSERT INTO Creates VALUES ('10','27','Signer','06/10/2022');
 INSERT INTO Creates VALUES ('10','28','Writter','06/10/2022');
 INSERT INTO Creates VALUES ('10','29','Producer','06/10/2022');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c1d5e77ad5aa4913fd86590b51fcd179a69319ab
 INSERT INTO Creates VALUES ('11','22','Singer, Writer','11/29/2022');
 INSERT INTO Creates VALUES ('11','23','Writer, Producer','11/29/2022');
 INSERT INTO Creates VALUES ('11','30','Writer','11/29/2022');
@@ -193,6 +221,7 @@ INSERT INTO Creates VALUES ('20','1','Singer','11/07/2022');
 INSERT INTO Creates VALUES ('20','3','Producer','11/07/2022');
 INSERT INTO Creates VALUES ('20','48','Writer','11/07/2022');
 
+<<<<<<< HEAD
 INSERT INTO Creates VALUES ('21','1','Singer, Writter','03/03/2023'); -- Thinkin' Bout Me, Morgan Wallen
 INSERT INTO Creates VALUES ('21','3','Producer','03/03/2023');
 INSERT INTO Creates VALUES ('22','49','Singer, Writter, Producer','09/22/2022'); -- Unholy, Sam Smith
@@ -219,8 +248,24 @@ INSERT INTO Creates VALUES ('30','63', 'Producer', '11/04/2022');
 
 
 
+=======
+/*
+INSERT INTO Creates VALUES ('21','N/A','N/A','03/03/2023');
+INSERT INTO Creates VALUES ('22','N/A','N/A','09/22/2022');
+INSERT INTO Creates VALUES ('23','N/A','N/A','10/12/2022');
+INSERT INTO Creates VALUES ('24','N/A','N/A','03/03/2023');
+INSERT INTO Creates VALUES ('25','N/A','N/A','10/17/2022');
+INSERT INTO Creates VALUES ('26','N/A','N/A','04/01/2023');
+INSERT INTO Creates VALUES ('27','N/A','N/A','04/22/2022');
+INSERT INTO Creates VALUES ('28','N/A','N/A','09/12/2022');
+INSERT INTO Creates VALUES ('29','N/A','N/A','05/20/2022');
+INSERT INTO Creates VALUES ('30','N/A','N/A','11/04/2022');
+*/
+>>>>>>> c1d5e77ad5aa4913fd86590b51fcd179a69319ab
 SHOW TABLES;
 DESCRIBE Song;
 SELECT * FROM Song;
 SELECT * FROM Contributor;
 SELECT * FROM Users;
+SELECT * FROM Creates;
+SELECT * FROM SignUp;
