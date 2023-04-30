@@ -21,18 +21,17 @@
     <div class="button2">
         <button style="margin-right: 10px;" onclick="DropDownNames()" class="dropbtn" name="existing">Choose Existing</button>
         <div id="DropDownNames" class="dropdownC">
-            <form action="SearchSong.php" method='POST'>
+            <form action="choosesearch.php" method='POST'>
                 <?php
                     
-                    $sql= "SELECT PhoneNum,UsersID FROM Users ORDER BY UsersID ASC"; 
+                    $sql= "SELECT PhoneNum, UsersID, Balance FROM Users ORDER BY UsersID ASC"; 
                     $pdo = new PDO($dsn, $username, $password, $options);
                     
                     foreach ($pdo->query($sql) as $row){
                         $PhoneNum = $row['PhoneNum'];
                         $IDNum = $row['UsersID'];
-                        
-                        echo "<button name='PhoneNumPicked' value='$PhoneNum $IDNum'> $row[PhoneNum]</button>"; 
-                       
+                        $Bal = $row['Balance'];
+                        echo "<button name='PhoneNumPicked' value='$PhoneNum$IDNum'> $row[PhoneNum]</button>";
                     }
                     
                 ?>

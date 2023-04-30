@@ -136,7 +136,7 @@ INSERT INTO SignUp VALUES ('7','6','2023-04-29 14:03:00','P','2');
 CREATE TABLE Creates (SongID int(20) NOT NULL,
             ContributorID int(20) NOT NULL,
             Contribution CHAR(30) NOT NULL,
-            ReleseDate CHAR(20) NULL,
+            ReleaseDate CHAR(20) NULL,
             PRIMARY KEY(ContributorID,SongID,Contribution),
             FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
