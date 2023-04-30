@@ -18,33 +18,29 @@
         <button type="Submit" class="button3" style="margin-right: 10px;" >I'm The DJ</button>
     </form>
 
-    
-
     <div class="button2">
         <button style="margin-right: 10px;" onclick="DropDownNames()" class="dropbtn" name="existing">Choose Existing</button>
         <div id="DropDownNames" class="dropdownC">
             <form action="SearchSong.php" method='POST'>
                 <?php
                     
-                    $sql= "SELECT PhoneNum FROM Users"; 
+                    $sql= "SELECT PhoneNum,UsersID FROM Users ORDER BY UsersID ASC"; 
                     $pdo = new PDO($dsn, $username, $password, $options);
+                    
                     foreach ($pdo->query($sql) as $row){
                         $PhoneNum = $row['PhoneNum'];
-                        echo "<button name='PhoneNumPicked' value='$PhoneNum'> $row[PhoneNum] </button>"; 
+                        $IDNum = $row['UsersID'];
+                        
+                        echo "<button name='PhoneNumPicked' value='$PhoneNum $IDNum'> $row[PhoneNum]</button>"; 
+                       
                     }
                     
                 ?>
             </form>
         </div>
     </div>
-    
 
 </div>
-
-<script>
-
-
-</script>
 
 </body>
 </html>
