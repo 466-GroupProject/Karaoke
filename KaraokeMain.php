@@ -24,15 +24,14 @@
             <form action="choosesearch.php" method='POST'>
                 <?php
                     
-                    $sql= "SELECT PhoneNum,UsersID FROM Users ORDER BY UsersID ASC"; 
+                    $sql= "SELECT PhoneNum, UsersID, Balance FROM Users ORDER BY UsersID ASC"; 
                     $pdo = new PDO($dsn, $username, $password, $options);
                     
                     foreach ($pdo->query($sql) as $row){
                         $PhoneNum = $row['PhoneNum'];
                         $IDNum = $row['UsersID'];
-                        
-                        echo "<button name='PhoneNumPicked' value='$PhoneNum $IDNum'> $row[PhoneNum]</button>"; 
-                       
+                        $Bal = $row['Balance'];
+                        echo "<button name='PhoneNumPicked' value='$PhoneNum$IDNum'> $row[PhoneNum]</button>";
                     }
                     
                 ?>

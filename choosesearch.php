@@ -5,13 +5,13 @@
 
     if(isset($_POST['PhoneNumPicked']))
     {
-        $_SESSION['post-data'] = $_POST['PhoneNumPicked'];
-        
-        $_SESSION['post-data3'] = substr($_SESSION['post-data'],15,15);
+        $_SESSION['post-data'] = $_POST['PhoneNumPicked'];//all data sent
+        $_SESSION['post-data3'] = substr($_SESSION['post-data'],14,15);//ID
+        //var_dump($_SESSION);
     }
 ?>
 
-<h1 style="text-align: center">Welcome <?php echo substr($_SESSION['post-data'],0,15);?> your ID is: <?php echo $_SESSION['post-data3'];?> </h1>
+<h1 style="text-align: center">Welcome <?php echo substr($_SESSION['post-data'],0,14);?></h1>
 <div class="btn-group">
     <form action="KaraokeMain.php" method="POST">
         <button style="margin-right: 650px;" onclick="history.go(-1);" > Back </button>
