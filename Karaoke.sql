@@ -43,7 +43,6 @@ INSERT INTO Song VALUES ('32', 'Die For You (Remix)','The Weeknd FT Ariana Grand
 INSERT INTO Song VALUES ('33', 'Despacito', 'Luis Fonsi & Daddy Yankee','4:41','POP', '8,143,373,571');
 INSERT INTO Song VALUES ('34', 'Despacito (Remix)', 'Luis Fonsi & Daddy Yankee FT Justin Biber, ','3:48','POP', '675,949,155');
 
-
 CREATE TABLE Users (UsersID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
             Name CHAR(50) NOT NULL, 
             StageName CHAR(50) NULL,
@@ -61,7 +60,6 @@ INSERT INTO Users VALUES ('7','George','NULL','17','GeorgeBird@yahoo.com','(708)
 INSERT INTO Users VALUES ('8','Tina','Big T','4','TinaSings@gmail.com','(312)-561-1764'); 
 INSERT INTO Users VALUES ('9','Kyle','King Kyle','64','KyleJohnson89@gmail.com','(224)-861-0954'); 
 INSERT INTO Users VALUES ('10','Blair','Baddie B','105','BlairW@yahoo.com','(847)-910-9812');  
-
 
 CREATE TABLE Contributor (ContributorID int(20) NOT NULL UNIQUE  PRIMARY KEY,
             Name CHAR(50) NOT NULL, 
@@ -118,8 +116,8 @@ INSERT INTO Contributor VALUES ('47', 'Kiddominant', '07/13/1992', 'Nigeria');
 INSERT INTO Contributor VALUES ('48', 'Miranda Lambert', '11/10/1983', 'USA');
 INSERT INTO Contributor VALUES ('49', 'Sam Smith', '5/19/1995', 'UK');
 INSERT INTO Contributor VALUES ('50', 'Kim Petras', '09/27/1992', 'Germany');
-INSERT INTO Contributor VALUES ('51', 'Danielle Balbuena(070 Shake)' '06/13/1997','USA');
-INSERT INTO Contributor VALUES ('52', 'Rachel Agatha Keen(Raye)''10/24/1997','USA');
+INSERT INTO Contributor VALUES ('51', 'Danielle Balbuena(070 Shake)','06/13/1997','USA');
+INSERT INTO Contributor VALUES ('52', 'Rachel Agatha Keen(Raye)','10/24/1997','USA');
 INSERT INTO Contributor VALUES ('53', 'Symere Bysil Woods(Lil Uzi Vert)', '7/31/1995', 'USA');
 INSERT INTO Contributor VALUES ('54', 'Hassan Emilio Kabande Laija(Peso Pluma)', '6/15/1999', 'Mexico');
 INSERT INTO Contributor VALUES ('55', 'Ryan Hadlock', 'N/A', 'USA');
@@ -137,29 +135,27 @@ INSERT INTO Contributor VALUES ('66', 'Daddy Yankee', '02/03/1977', 'USA'); -- D
 INSERT INTO Contributor VALUES ('67', 'Justin Bieber', '03/01/1994', 'Canada'); -- Despacito Writter and singer
 INSERT INTO Contributor VALUES ('68', 'Andrés Torres', 'N/A', 'Colombia'); --Despcito Producer
 
-
-
-
 CREATE TABLE SignUp (UsersID int(20) NOT NULL,
             SongID int(20) NOT NULL, 
             SignUpTime TIMESTAMP NOT NULL,
             QueueType CHAR(20) NOT NULL,
             Cost int(20) NULL,
+            FileID DECIMAL(4,1) NOT NULL,
+            Versions char(4) NOT NULL,
             PRIMARY KEY(UsersID,SongID,SignUpTime), 
             FOREIGN KEY(UsersID) REFERENCES Users(UsersID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
 
-INSERT INTO SignUp VALUES ('1','1','2023-04-29 13:54:00','F',NULL); 
-INSERT INTO SignUp VALUES ('1','10','2023-04-29 13:55:00','P','1'); 
-INSERT INTO SignUp VALUES ('2','11','2023-04-29 13:56:00','F',NULL); 
-INSERT INTO SignUp VALUES ('2','13','2023-04-29 13:57:00','P','5'); 
-INSERT INTO SignUp VALUES ('4','4','2023-04-29 13:58:00','F',NULL); 
-INSERT INTO SignUp VALUES ('4','2','2023-04-29 13:59:00','P','10'); 
-INSERT INTO SignUp VALUES ('10','21','2023-04-29 14:00:00','F',NULL); 
-INSERT INTO SignUp VALUES ('10','27','2023-04-29 14:01:00','P','3'); 
-INSERT INTO SignUp VALUES ('7','29','2023-04-29 14:02:00','F',NULL); 
-INSERT INTO SignUp VALUES ('7','6','2023-04-29 14:03:00','P','2'); 
-
+INSERT INTO SignUp VALUES ('1','1','2023-04-29 13:54:00','F',NULL, 1.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('1','10','2023-04-29 13:55:00','P','1', 10.5, 'Duet');
+INSERT INTO SignUp VALUES ('2','11','2023-04-29 13:56:00','F',NULL, 11.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('2','13','2023-04-29 13:57:00','P','5', 13.5, 'Duet'); 
+INSERT INTO SignUp VALUES ('4','4','2023-04-29 13:58:00','F',NULL, 4.5, 'Duet'); 
+INSERT INTO SignUp VALUES ('4','2','2023-04-29 13:59:00','P','10', 2.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('10','21','2023-04-29 14:00:00','F',NULL, 21.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('10','27','2023-04-29 14:01:00','P','3', 27.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('7','29','2023-04-29 14:02:00','F',NULL,29.5, 'Duet'); 
+INSERT INTO SignUp VALUES ('7','6','2023-04-29 14:03:00','P','2', 1.5, 'Duet');
 
 CREATE TABLE Creates (SongID int(20) NOT NULL,
             ContributorID int(20) NOT NULL,
@@ -169,7 +165,6 @@ CREATE TABLE Creates (SongID int(20) NOT NULL,
             FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
            
-
 INSERT INTO Creates VALUES ('1','1','Singer','2/6/2023');
 INSERT INTO Creates VALUES ('1','2','Writter','2/6/2023');
 INSERT INTO Creates VALUES ('1','3','Producer','2/6/2023');
@@ -224,59 +219,73 @@ INSERT INTO Creates VALUES ('13','33','Producer','04/1/2022');
 INSERT INTO Creates VALUES ('14','34','Singer','02/17/2023');
 INSERT INTO Creates VALUES ('14','35','Writer','02/17/2023');
 INSERT INTO Creates VALUES ('14','36','Producer','02/17/2023');
+
 INSERT INTO Creates VALUES ('15','37','Singer','11/26/2010');
 INSERT INTO Creates VALUES ('15','38','Writer, Producer','11/26/2010');
+
 INSERT INTO Creates VALUES ('16','39','Singer, Writer, Producer','03/31/2023');
+
 INSERT INTO Creates VALUES ('17','40','Singer, Writer','NULL');
 INSERT INTO Creates VALUES ('17','41','Writer, Producer','NULL');
+
 INSERT INTO Creates VALUES ('18','42','Writer, Producer','07/26/2022');
 INSERT INTO Creates VALUES ('18','43','Singer','07/26/2022');
 INSERT INTO Creates VALUES ('18','44','Producer','07/26/2022');
+
 INSERT INTO Creates VALUES ('19','45','Singer','08/06/2022');
 INSERT INTO Creates VALUES ('19','46','Writer','08/06/2022');
 INSERT INTO Creates VALUES ('19','47','Producer','08/06/2022');
+
 INSERT INTO Creates VALUES ('20','1','Singer','11/07/2022');
 INSERT INTO Creates VALUES ('20','3','Producer','11/07/2022');
 INSERT INTO Creates VALUES ('20','48','Writer','11/07/2022');
+
 INSERT INTO Creates VALUES ('21','1','Singer, Writter','03/03/2023'); -- Thinkin' Bout Me, Morgan Wallen
 INSERT INTO Creates VALUES ('21','3','Producer','03/03/2023');
+
 INSERT INTO Creates VALUES ('22','49','Singer, Writter, Producer','09/22/2022'); -- Unholy, Sam Smith
 INSERT INTO Creates VALUES ('22','50','Singer, Writter, Producer','09/22/2022');
+
 INSERT INTO Creates VALUES ('23','51','Singer','10/12/2022'); -- Escapism, RAYE
 INSERT INTO Creates VALUES ('23','52','Writter','10/12/2022');
+
 INSERT INTO Creates VALUES ('24','1','Singer, Writter','03/03/2023'); -- One Thing At A Time, Morgan Wallen
-INSERT INTO Creates VALUES ('24','3','Producer','03/03/2023')
+INSERT INTO Creates VALUES ('24','3','Producer','03/03/2023');
+
 INSERT INTO Creates VALUES ('25','53','Signer, Writter','10/17/2022'); -- Just Wanna Rock, Lil Uzi Vert
+
 INSERT INTO Creates VALUES ('26','54','Signer','04/01/2023'); -- La Bebe, Yng Lvcas
+
 INSERT INTO Creates VALUES ('27','55','Producer','04/22/2022'); -- Something in the Orange, Zach Bryan
 INSERT INTO Creates VALUES ('27','56','Signer','04/22/2022');
+
 INSERT INTO Creates VALUES ('28','57','Writter','09/12/2022'); -- Thank God, Kane Brown
 INSERT INTO Creates VALUES ('28','58','Producer','09/12/2022');
 INSERT INTO Creates VALUES ('28','59','Signer','09/12/2022');
+
 INSERT INTO Creates VALUES ('29','60','Writter','05/20/2022'); -- Heart Like a Truck, Lainey Wilson
 INSERT INTO Creates VALUES ('29','61','Signer','05/20/2022');
+
 INSERT INTO Creates VALUES ('30','62','Signer, Writter','11/04/2022'); -- Rich Flex, Drake
 INSERT INTO Creates VALUES ('30','12','Signer, Writter','11/04/2022'); 
 INSERT INTO Creates VALUES ('30','63', 'Producer', '11/04/2022');
+
 INSERT INTO Creates Values ('31', '4', 'Signer and Writter','01/10/2023'); -- Kill Bill Remix
 INSERT INTO Creates Values ('31', '6', 'Signer and Writter','01/10/2023');
 INSERT INTO Creates VALUES ('31','5','Writter, Producer','01/10/2023');
+
 INSERT INTO Creates VALUES ('32','14','Writter, Producer','2/24/2023'); -- Die for you remix
 INSERT INTO Creates VALUES ('32','15','Producer','2/24/2023');
 INSERT INTO Creates VALUES ('32','64','Writter, Producer','2/24/2023');
+
 INSERT INTO Creates VALUES ('33', '65', 'Singer, Writter', '01/12/2017'); -- Despacito
 INSERT INTO Creates VALUES ('33', '66', 'Singer, Writter', '01/12/2017');
 INSERT INTO Creates VALUES ('33', '68', 'Producer', '01/12/2017');
+
 INSERT INTO Creates VALUES ('34','65','Singer, Writter', '04/17/2017'); -- Despacito Remix
 INSERT INTO Creates VALUES ('34','66','Singer, Writter', '04/17/2017');
 INSERT INTO Creates VALUES ('34','67','Singer, Writter', '04/17/2017');
 INSERT INTO Creates VALUES ('34','68','Singer, Writter', '04/17/2017');
-
-
-
-
-
-
 
 SHOW TABLES;
 DESCRIBE Song;
