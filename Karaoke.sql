@@ -116,8 +116,8 @@ INSERT INTO Contributor VALUES ('47', 'Kiddominant', '07/13/1992', 'Nigeria');
 INSERT INTO Contributor VALUES ('48', 'Miranda Lambert', '11/10/1983', 'USA');
 INSERT INTO Contributor VALUES ('49', 'Sam Smith', '5/19/1995', 'UK');
 INSERT INTO Contributor VALUES ('50', 'Kim Petras', '09/27/1992', 'Germany');
-INSERT INTO Contributor VALUES ('51', 'Danielle Balbuena(070 Shake)' '06/13/1997','USA');
-INSERT INTO Contributor VALUES ('52', 'Rachel Agatha Keen(Raye)''10/24/1997','USA');
+INSERT INTO Contributor VALUES ('51', 'Danielle Balbuena(070 Shake)','06/13/1997','USA');
+INSERT INTO Contributor VALUES ('52', 'Rachel Agatha Keen(Raye)','10/24/1997','USA');
 INSERT INTO Contributor VALUES ('53', 'Symere Bysil Woods(Lil Uzi Vert)', '7/31/1995', 'USA');
 INSERT INTO Contributor VALUES ('54', 'Hassan Emilio Kabande Laija(Peso Pluma)', '6/15/1999', 'Mexico');
 INSERT INTO Contributor VALUES ('55', 'Ryan Hadlock', 'N/A', 'USA');
@@ -135,6 +135,7 @@ INSERT INTO Contributor VALUES ('66', 'Daddy Yankee', '02/03/1977', 'USA'); -- D
 INSERT INTO Contributor VALUES ('67', 'Justin Bieber', '03/01/1994', 'Canada'); -- Despacito Writter and singer
 INSERT INTO Contributor VALUES ('68', 'Andrés Torres', 'N/A', 'Colombia'); --Despcito Producer
 
+/*
 CREATE TABLE SignUp (UsersID int(20) NOT NULL,
             SongID int(20) NOT NULL, 
             SignUpTime TIMESTAMP NOT NULL,
@@ -154,6 +155,28 @@ INSERT INTO SignUp VALUES ('10','21','2023-04-29 14:00:00','F',NULL);
 INSERT INTO SignUp VALUES ('10','27','2023-04-29 14:01:00','P','3'); 
 INSERT INTO SignUp VALUES ('7','29','2023-04-29 14:02:00','F',NULL); 
 INSERT INTO SignUp VALUES ('7','6','2023-04-29 14:03:00','P','2'); 
+*/
+CREATE TABLE SignUp (UsersID int(20) NOT NULL,
+            SongID int(20) NOT NULL, 
+            SignUpTime TIMESTAMP NOT NULL,
+            QueueType CHAR(20) NOT NULL,
+            Cost int(20) NULL,
+            FileID DECIMAL(4,1) NOT NULL,
+            Versions char(4) NOT NULL,
+            PRIMARY KEY(UsersID,SongID,SignUpTime), 
+            FOREIGN KEY(UsersID) REFERENCES Users(UsersID),
+            FOREIGN KEY(SongID) REFERENCES Song(SongID));
+
+INSERT INTO SignUp VALUES ('1','1','2023-04-29 13:54:00','F',NULL, 1.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('1','10','2023-04-29 13:55:00','P','1', 10.5, 'Duet');
+INSERT INTO SignUp VALUES ('2','11','2023-04-29 13:56:00','F',NULL, 11.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('2','13','2023-04-29 13:57:00','P','5', 13.5, 'Duet'); 
+INSERT INTO SignUp VALUES ('4','4','2023-04-29 13:58:00','F',NULL, 4.5, 'Duet'); 
+INSERT INTO SignUp VALUES ('4','2','2023-04-29 13:59:00','P','10', 2.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('10','21','2023-04-29 14:00:00','F',NULL, 21.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('10','27','2023-04-29 14:01:00','P','3', 27.0, 'Solo'); 
+INSERT INTO SignUp VALUES ('7','29','2023-04-29 14:02:00','F',NULL,29.5, 'Duet'); 
+INSERT INTO SignUp VALUES ('7','6','2023-04-29 14:03:00','P','2', 1.5, 'Duet');
 
 CREATE TABLE Creates (SongID int(20) NOT NULL,
             ContributorID int(20) NOT NULL,
