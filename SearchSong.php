@@ -35,6 +35,8 @@
 
 if( !empty($_POST["Search1"])) {
     $newSong = $_POST["Search1"];
+
+    $Search = '%' . $newSong . '%';
     
     echo "<br> <h1 style='font-size:200%;'> You Searched for a Song or Title named $newSong.</h1>";
 
@@ -43,12 +45,12 @@ if( !empty($_POST["Search1"])) {
             FROM Song, Contributor, Creates 
             WHERE Song.SongID = Creates.SongID
             AND Creates.ContributorID = Contributor.ContributorID
-            AND Title = ? ;";
+            AND Title LIKE ? ;";
 
 	try {
         $pdo = new PDO($dsn, $username, $password, $options);
         $statement = $pdo->prepare($sql);
-        $statement->execute([$newSong]);
+        $statement->execute([$Search]);
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         if(empty($rows)) {
