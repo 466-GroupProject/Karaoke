@@ -9,35 +9,94 @@
         $_SESSION['post-data3'] = substr($_SESSION['post-data'],14,15);//ID
         //var_dump($_SESSION);
     }
+
+    $num = substr($_SESSION['post-data'],0,14);
+
+    //echo "This is the num $num";
+    $sql = "SELECT * FROM Users WHERE PhoneNum = ? ;";
+
+	try {
+        // connect to database
+        $pdo = new PDO($dsn, $username, $password);
+
+        $statement = $pdo->prepare($sql);
+        $statement->execute([$num]);
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if(empty($rows)) {
+            echo "<h3> There were no results for </h3>";
+        }else{
+            $_SESSION['post-data4'] = $rows[0]['Balance']; 
+            $_SESSION['post-data5']= $rows[0]['Name'];
+        }
+   
+    }
+    catch (PDOException $e) {
+        die("<p>Query failed: {$e->getMessage()}</p>\n");
+    }
+
 ?>
 
 <html><head><title>Search Songs</title></head><body>
 
-<h1 style="text-align: center">Welcome <?php echo substr($_SESSION['post-data'],0,14);?></h1>
+<h1 style="text-align: center">Welcome <?php echo $_SESSION['post-data5'];?> Balance: <?php echo $_SESSION['post-data4'];?></h1>
 <div class="btn-group">
     <form action="KaraokeMain.php" method="POST">
-        <button style="margin-right: 650px;" onclick="history.go(-1);" > Home </button>
+        <button style="margin-right: 750px;" onclick="history.go(-1);" > Back </button>
     </form>
 
-</div>
-<div class="btn-group">
     <form action="SearchContrib.php" method="POST">
         <button style="margin-center: 0px;" > Search by Musician </button>
     </form>
-
 </div>
-<h1 style="text-align: center">Search for a Song</h1> <br>
+
+<div class="midnav">
+    <div class="search-container3">
+         <form action="SearchSong.php" method="POST">
+            <input type="text" placeholder="Add Amount" name="AddedAmount" required>
+            <button type="submit">Add Funds</button>
+        </form>
+    </div>
+</div>
+
+<h1 style="text-align: center">Search for a Song Title</h1> <br>
 
 <div class="midnav">
     <div class="search-container">
         <form action="SearchSong.php" method='POST'>
-            <input type="text" placeholder="Search for a Artist or a Title" name="Search1" required>
+            <input type="text" placeholder="Search for a Song Title" name="Search1" required>
             <button type="submit">Submit</button>
         </form>
     </div>
 </div>
     
 <?php
+
+if (!empty($_POST["AddedAmount"])) { 
+
+    if ($_POST["AddedAmount"] > 0 && $_POST["AddedAmount"] <= 1000) {
+
+        $newAmount = $_POST["AddedAmount"];
+        $UID = $_SESSION['post-data3'];
+
+        $sql = 'UPDATE Users SET Balance = Balance + ? WHERE UsersID = ?';
+        try {
+                    
+            $pdo = new PDO($dsn, $username, $password, $options);
+            $statement = $pdo->prepare($sql);
+            $statement->execute([$newAmount,$UID]);
+            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+            echo '<meta http-equiv="refresh" content="0">';
+
+            echo '<script> alert("Successfully Added Funds!") </script>';
+        } catch (PDOException $e) {
+            die("<p>Query failed: {$e->getMessage()}</p>\n");
+        }
+    }else{
+        echo '<script> alert("Enter a valid fund amount between 1-1000!") </script>';
+    }
+
+}
 
 if( !empty($_POST["Search1"])) {
     $newSong = $_POST["Search1"];
@@ -75,7 +134,6 @@ if( !empty($_POST["Search1"])) {
 
 ?>
 
-
 <h1 style="text-align: center" class="fixedh1"> Sign up for a Song</h1>
 
 <div class="midnav">
@@ -90,8 +148,8 @@ if( !empty($_POST["Search1"])) {
 </div>
 
 <?php 
-    
-    if( !empty($_POST["EnterSongID"]) ) {
+
+    if( !empty($_POST["EnterSongID"]) && $_POST["EnterSongID"] > 0 && $_POST["EnterSongID"] <= 30 ) {
 
         if(isset($_POST['FreeQ'])){
             $SID = $_POST["EnterSongID"];
@@ -104,11 +162,13 @@ if( !empty($_POST["Search1"])) {
                 $statement->execute([$UID,$SID]);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
                 echo '<meta http-equiv="refresh" content="0">';
+                echo '<script> alert("Successfully Added You To The Free Queue!") </script>';
             } catch (PDOException $e) {
                 die("<p>Query failed: {$e->getMessage()}</p>\n");
             }
 
-        }else if (isset($_POST['PaidQ']) && !empty($_POST["EnterAmount"] && $_POST["EnterAmount"] >= 1) ){
+        }else if (isset($_POST['PaidQ']) && !empty($_POST["EnterAmount"]) && $_POST["EnterAmount"] >= 1 && $_POST["EnterAmount"] <= $_SESSION['post-data4']) {
+
             $SID = $_POST["EnterSongID"];
             $UID = $_SESSION['post-data3'];
             $AmountP = $_POST['EnterAmount'];
@@ -119,18 +179,26 @@ if( !empty($_POST["Search1"])) {
                 $statement = $pdo->prepare($sql);
                 $statement->execute([$UID,$SID,$AmountP]);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+                
+                $sql = 'UPDATE Users SET Balance = Balance - ? WHERE UsersID = ?';
+                $pdo = new PDO($dsn, $username, $password, $options);
+                $statement = $pdo->prepare($sql);
+                $statement->execute([$AmountP,$UID]);
+                $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
                 echo '<meta http-equiv="refresh" content="0">';
+
+                echo '<script> alert("Successfully Added You To The Paid Queue!") </script>';
             } catch (PDOException $e) {
                 die("<p>Query failed: {$e->getMessage()}</p>\n");
             }
+
         }else{
-            echo "<h2>Please Enter a valid SongID and Amount within the Balance.</h2>";
+            echo '<script> alert("Enter a vaid SongID and Amount in your Balance!") </script>';
         }
 
     }
 
 ?>
-
 
 </body>
 </html>
