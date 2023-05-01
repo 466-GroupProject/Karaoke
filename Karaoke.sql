@@ -125,12 +125,12 @@ INSERT INTO Contributor VALUES ('54', 'Hassan Emilio Kabande Laija(Peso Pluma)',
 INSERT INTO Contributor VALUES ('55', 'Ryan Hadlock', 'N/A', 'USA');
 INSERT INTO Contributor VALUES ('56', 'Zachary Lane Bryan', '4/2/1996', 'USA');
 INSERT INTO Contributor VALUES ('57', 'Josh Hoge', 'N/A', 'USA');  -- Thank God Writter
-INSERT INTO Contributor VALUES ('58' 'Dann Huff', '11/15/1960', 'USA'); -- Thank god producer
-INSERT INTO Contributor VALUES ('59' 'Kane Allen Brown', '10/21/1993', 'USA'); -- Thank god signer
-INSERT INTO Contributor VALUES ('60' 'Dallas Wilson', ' N/A', 'USA'); -- Heart Like a Truck writter
-INSERT INTO Contributor VALUES ('61' 'Lainey Denay Wilson', '5/19/1992', 'USA'); -- Heart Like a Truck Singer
-INSERT INTO Contributor VALUES ('62' 'Aubrey Drake Graham', '10/24/1986', 'Canada'); -- Rich Flex
-INSERT INTO Contributor VALUES ('63' 'Anderson Hernandez(Vinylz)', '9/2/1989', 'USA'); -- Rich Flex Producer
+INSERT INTO Contributor VALUES ('58', 'Dann Huff', '11/15/1960', 'USA'); -- Thank god producer
+INSERT INTO Contributor VALUES ('59', 'Kane Allen Brown', '10/21/1993', 'USA'); -- Thank god signer
+INSERT INTO Contributor VALUES ('60', 'Dallas Wilson', ' N/A', 'USA'); -- Heart Like a Truck writter
+INSERT INTO Contributor VALUES ('61', 'Lainey Denay Wilson', '5/19/1992', 'USA'); -- Heart Like a Truck Singer
+INSERT INTO Contributor VALUES ('62', 'Aubrey Drake Graham', '10/24/1986', 'Canada'); -- Rich Flex
+INSERT INTO Contributor VALUES ('63', 'Anderson Hernandez(Vinylz)', '9/2/1989', 'USA'); -- Rich Flex Producer
 INSERT INTO Contributor VALUES ('64', 'Ariana Grande-Butera', '06/26/1993', 'USA'); -- Signer Producer
 INSERT INTO Contributor VALUES ('65', 'Luis Fonis', '04/15/1978', 'USA');  -- Despacito Writter and singer
 INSERT INTO Contributor VALUES ('66', 'Daddy Yankee', '02/03/1977', 'USA'); -- Despacito Writter and singer
