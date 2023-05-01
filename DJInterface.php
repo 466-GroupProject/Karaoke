@@ -111,7 +111,6 @@
         // if no button was pressed sort by Cost by default
         else
         {
-            echo "YAAAAAa";
             // set SQL statement
             $sql = "SELECT FileID, Name, StageName, Title, Artist, SignUpTime, Cost    
                     FROM Song, Users, SignUp 
