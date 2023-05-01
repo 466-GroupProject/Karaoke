@@ -34,13 +34,15 @@
     catch (PDOException $e) {
         die("<p>Query failed: {$e->getMessage()}</p>\n");
     }
-
+    
 ?>
 
 <html><head><title>Search Songs</title></head><body>
 
 <h1 style="text-align: center">Welcome <?php echo $_SESSION['post-data5'];?> Balance: <?php echo $_SESSION['post-data4'];?></h1>
+
 <div class="btn-group">
+
     <form action="KaraokeMain.php" method="POST">
         <button style="margin-right: 750px;" onclick="history.go(-1);" > Back </button>
     </form>
@@ -48,6 +50,7 @@
     <form action="SearchContrib.php" method="POST">
         <button style="margin-center: 0px;" > Search by Musician </button>
     </form>
+
 </div>
 
 <div class="midnav">
@@ -156,16 +159,17 @@ if( !empty($_POST["Search1"])) {
         if(isset($_POST['FreeQ'])){
             $SID = $_POST["EnterSongID"];
             $UID = $_SESSION['post-data3'];
+            $date = date('Y-m-d H:i:s');
             $Ver = $_POST["NumS"];
 
             if($Ver == 'Solo') { $P5 = 0.0; } else { $P5 = 0.5; }
 
             $sql = 'INSERT INTO SignUp (UsersID,SongID,SignUpTime,QueueType,Cost,FileID,Versions)
-                     VALUES (?,?,"2023-04-29 11:54:00", "F", NULL, ? + ?, ?)';
+                     VALUES (?,?,?,"F", NULL,? + ?,?)';
            try {
                 $pdo = new PDO($dsn, $username, $password, $options);
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$UID,$SID,$SID,$P5,$Ver]);
+                $statement->execute([$UID,$SID,$date,$SID,$P5,$Ver]);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
                 echo '<meta http-equiv="refresh" content="0">';
                 echo '<script> alert("Successfully Added You To The Free Queue!") </script>';
@@ -178,16 +182,17 @@ if( !empty($_POST["Search1"])) {
             $SID = $_POST["EnterSongID"];
             $UID = $_SESSION['post-data3'];
             $AmountP = $_POST['EnterAmount'];
+            $date = date('Y-m-d H:i:s');
             $Ver = $_POST["NumS"];
 
             if($Ver == 'Solo') { $P5 = 0.0; } else { $P5 = 0.5; }
 
             $sql = 'INSERT INTO SignUp (UsersID,SongID,SignUpTime,QueueType,Cost,FileID,Versions) 
-                     VALUES (?,?,"2023-04-29 11:57:00","P",?, ? + ?, ?)';
+                     VALUES (?,?,?,"P",?,? + ?,?)';
             try {
                 $pdo = new PDO($dsn, $username, $password, $options);
                 $statement = $pdo->prepare($sql);
-                $statement->execute([$UID,$SID,$AmountP,$SID,$P5,$Ver]);
+                $statement->execute([$UID,$SID,$date,$AmountP,$SID,$P5,$Ver]);
                 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
                 
                 $sql = 'UPDATE Users SET Balance = Balance - ? WHERE UsersID = ?';
