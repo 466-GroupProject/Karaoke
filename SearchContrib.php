@@ -20,6 +20,12 @@
     </form>
 
 </div>
+<div class="btn-group">
+    <form action="SearchSong.php" method="POST">
+        <button style="margin-center: 0px;" > Search by Song Title </button>
+    </form>
+
+</div>
 <h1 style="text-align: center">Search for a Musician</h1> <br>
 
 <div class="midnav">
@@ -64,7 +70,7 @@ if( !empty($_POST["Search1"])) {
 	}
 
 } else {
-    echo "<br> <h1 style='font-size:200%;'> Please Enter an Artist or a Title. </h1>";
+    echo "<br> <h1 style='font-size:200%;'> Please Enter an Artist or a Contributor. </h1>";
 }
 
 ?>

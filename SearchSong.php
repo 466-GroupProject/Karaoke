@@ -16,7 +16,13 @@
 <h1 style="text-align: center">Welcome <?php echo substr($_SESSION['post-data'],0,14);?></h1>
 <div class="btn-group">
     <form action="KaraokeMain.php" method="POST">
-        <button style="margin-right: 650px;" onclick="history.go(-1);" > Back </button>
+        <button style="margin-right: 650px;" onclick="history.go(-1);" > Home </button>
+    </form>
+
+</div>
+<div class="btn-group">
+    <form action="SearchContrib.php" method="POST">
+        <button style="margin-center: 0px;" > Search by Musician </button>
     </form>
 
 </div>
@@ -41,7 +47,7 @@ if( !empty($_POST["Search1"])) {
     echo "<br> <h1 style='font-size:200%;'> You Searched for a Song or Title named $newSong.</h1>";
 
     //$sql = 'Select * FROM Song WHERE Artist = ? OR Title = ? ';
-    $sql = "SELECT * 
+    $sql = "SELECT DISTINCT Creates.SongID, Song.*, ReleaseDate  
             FROM Song, Contributor, Creates 
             WHERE Song.SongID = Creates.SongID
             AND Creates.ContributorID = Contributor.ContributorID
