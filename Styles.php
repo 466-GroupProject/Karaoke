@@ -5,7 +5,7 @@
 
 /* FROM https://www.w3schools.com/howto/howto_css_button_group.asp 
     
-  Formatting the buttons
+  Formatting the buttons 
 */
 
 .btn-group button {
@@ -95,9 +95,22 @@ th, td {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-46%, -550%);
+  transform: translate(-46%, -525%);
 }
-
+.midnav .search-container2 {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-46%, +725%);
+}
+.midnav .search-container3 {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(+160%, -680%);
+}
 .midnav input[type=text] {
   padding: 6px;
   margin-top: 8px;
@@ -106,6 +119,36 @@ th, td {
 }
 
 .midnav .search-container button {
+  float: center;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 7px 15px; /* Some padding */
+}
+
+.midnav .search-container2 button {
+  float: center;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 7px 15px; /* Some padding */
+}
+
+.midnav .search-container3 button {
   float: center;
   padding: 6px;
   margin-top: 8px;
@@ -156,6 +199,13 @@ th, td {
 
 .dropdown a:hover {background-color: #ddd;}
 .show {display: block;}
+
+
+.fixedh1 {
+  position: absolute;
+  top: 850px;
+  left: 830px;
+}
 
 </style>
 
