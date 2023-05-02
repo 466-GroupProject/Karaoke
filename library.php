@@ -17,7 +17,7 @@ function drawTable($rows){
 	echo "<colgroup> <col span='20' style='background-color:white'> </colgroup>";
 	echo "<tr>";
 	foreach(array_keys($rows[0]) as $heading){
-		echo "<td><button onclick='sortTable(0)'><strong>$heading<strong></button></td>";
+		echo "<td><button onclick='sortLink(0)'><strong>$heading<strong></button></td>";
 	}
 	echo "</tr>";
 	foreach($rows as $row){
