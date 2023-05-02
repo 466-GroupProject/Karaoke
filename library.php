@@ -33,6 +33,33 @@ function drawTable($rows){
 
 ?>
 
+<?php
+// database
+
+// connect or print error
+$dsn = "mysql:host=$host;dbname=$dbname";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+//Sorting Function
+function sortLink($column, $label, $sort, $order) 
+{
+  $url = $_SERVER['SearchContrib.php'];  
+  $params = $_GET;
+  $params['sort'] = $column;  
+  $params['order'] = ($order == 'asc' ? 'desc' : 'asc');
+  
+  $arrow = '';
+  if ($sort == $column) {    if ($order == 'asc') {      $arrow = '&uarr;';    } else {      $arrow = '&darr;';    }  }
+  $queryString = http_build_query($params);
+  return "<a href=\"$url?$queryString\">$label $arrow</a>";} 
+
+?>
+
+
 <script>
 /*https://www.w3schools.com/howto/howto_js_dropdown.asp*/
 function DropDownNames() {
