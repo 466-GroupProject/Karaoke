@@ -1,16 +1,15 @@
 <?php
-     session_start();
-     include("library.php");
-     include("Styles.php"); 
+    session_start();
+    include("library.php");
+    include("Styles.php"); 
  
-     if(isset($_POST['PhoneNumPicked']))
-     {
-         $_SESSION['post-data'] = $_POST['PhoneNumPicked'];//all data sent
-         $_SESSION['post-data3'] = substr($_SESSION['post-data'],14,15);//ID
-         //var_dump($_SESSION);
-     }
+    if(isset($_POST['PhoneNumPicked']))
+    {
+        $_SESSION['post-data'] = $_POST['PhoneNumPicked'];//all data sent
+        //var_dump($_SESSION);
+    }
 
-     $num = substr($_SESSION['post-data'],0,14);
+    $num = substr($_SESSION['post-data'],0,12);
 
     //echo "This is the num $num";
     $sql = "SELECT * FROM Users WHERE PhoneNum = ? ;";
@@ -28,6 +27,7 @@
         }else{
             $_SESSION['post-data4'] = $rows[0]['Balance']; 
             $_SESSION['post-data5'] = $rows[0]['Name'];
+            $_SESSION['post-data3'] = $rows[0]['UsersID'];
         }
    
     }
