@@ -50,16 +50,16 @@ CREATE TABLE Users (UsersID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
             Email CHAR(50) NOT NULL UNIQUE,
             PhoneNum CHAR(20) NOT NULL UNIQUE);
 
-INSERT INTO Users VALUES ('1','Tim','Timmy','25','Timmy@gmail.com','(847)-224-8765'); 
-INSERT INTO Users VALUES ('2','Sarah','NULL','10','SarahS99@yahoo.com','(224)-637-2365'); 
-INSERT INTO Users VALUES ('3','Matthew','Mighty Matt','30','MattySmith@gmail.com','(312)-548-7351'); 
-INSERT INTO Users VALUES ('4','Victoria','Vicky','25','Vicky98@gmail.com','(708)-761-2997'); 
-INSERT INTO Users VALUES ('5','Jeffery','Jeff','50','JeffM56@yahoo.com','(847)-609-6516'); 
-INSERT INTO Users VALUES ('6','Jennifer','Jenny Jams','23','JJ123@gmail.com','(224)-519-2573'); 
-INSERT INTO Users VALUES ('7','George','NULL','17','GeorgeBird@yahoo.com','(708)-582-0709'); 
-INSERT INTO Users VALUES ('8','Tina','Big T','4','TinaSings@gmail.com','(312)-561-1764'); 
-INSERT INTO Users VALUES ('9','Kyle','King Kyle','64','KyleJohnson89@gmail.com','(224)-861-0954'); 
-INSERT INTO Users VALUES ('10','Blair','Baddie B','105','BlairW@yahoo.com','(847)-910-9812');  
+INSERT INTO Users VALUES ('1','Tim','Timmy','25','Timmy@gmail.com','847-224-8765'); 
+INSERT INTO Users VALUES ('2','Sarah','NULL','10','SarahS99@yahoo.com','224-637-2365'); 
+INSERT INTO Users VALUES ('3','Matthew','Mighty Matt','30','MattySmith@gmail.com','312-548-7351'); 
+INSERT INTO Users VALUES ('4','Victoria','Vicky','25','Vicky98@gmail.com','708-761-2997'); 
+INSERT INTO Users VALUES ('5','Jeffery','Jeff','50','JeffM56@yahoo.com','847-609-6516'); 
+INSERT INTO Users VALUES ('6','Jennifer','Jenny Jams','23','JJ123@gmail.com','224-519-2573'); 
+INSERT INTO Users VALUES ('7','George','NULL','17','GeorgeBird@yahoo.com','708-582-0709'); 
+INSERT INTO Users VALUES ('8','Tina','Big T','4','TinaSings@gmail.com','312-561-1764'); 
+INSERT INTO Users VALUES ('9','Kyle','King Kyle','64','KyleJohnson89@gmail.com','224-861-0954'); 
+INSERT INTO Users VALUES ('10','Blair','Baddie B','105','BlairW@yahoo.com','847-910-9812');  
 
 CREATE TABLE Contributor (ContributorID int(20) NOT NULL UNIQUE  PRIMARY KEY,
             Name CHAR(50) NOT NULL, 

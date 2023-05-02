@@ -9,8 +9,6 @@
 <h1 style="text-align: center">Sign Up Form</h1>
 
 <form action="CreateAccount.php" method='POST'>
-    <label for="ID"><b>ID</b></label>
-    <input type="text" placeholder="Enter ID" name="ID" required>
 
     <label for="Name"><b>Name</b></label>
     <input type="text" placeholder="Enter Name" name="Name" required>
@@ -27,57 +25,56 @@
     <input type="email" placeholder="Example@gmail.com" name="Email" required>
 
     <label for="PhoneNumber"><b>PhoneNumber</b></label>
-    <input type="tel" pattern="[0-9]{3})-[0-9]{3}-[0-9]{4}" placeholder="Ex. (123)-456-7890" name="PhoneNumber" required>
+    <input type="tel" id="phone" name="PhoneNumber" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-453-6780" required>
 
     <br><br>
     
-    <button onclick="myalert()">Sign Up</button>
+    <button> Sign Up </button>
 </form>
-
-
 
 <form action="KaraokeMain.php" method='POST'>
     <button onclick="history.go(-1);" > Back </button>
 </form>
 
-
 <?php
-    if( !empty($_POST["ID"]) && !empty($_POST["Name"])  && !empty($_POST["StageName"]) 
-    && !empty($_POST["Balance"]) && !empty($_POST["Email"]) && !empty($_POST["PhoneNumber"])){
+    
+    if(!empty($_POST["Name"])  && !empty($_POST["StageName"]) && !empty($_POST["Balance"]) && !empty($_POST["Email"]) && !empty($_POST["PhoneNumber"]) ){
 
-        $ID = $_POST["ID"];
-        $Name = $_POST["Name"];
-        $PhNum = $_POST["PhoneNumber"];
-        $SName = $_POST["StageName"];
-        $Email = $_POST["Email"];
-        $Balance = $_POST["Balance"];
+        $sql = "SELECT * FROM Users WHERE PhoneNum = ? OR Email = ?";
+        $pdo = new PDO($dsn, $username, $password);
+        $statement = $pdo->prepare($sql);
+        $statement->execute([$_POST["PhoneNumber"], $_POST["Email"]]);
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $sql = 'INSERT INTO Users VALUES (?,?,?,?,?,?)';
-        try {
-            $pdo = new PDO($dsn, $username, $password, $options);
-            $statement = $pdo->prepare($sql);
-            $statement->execute([$ID,$Name,$SName,$Balance,$Email,$PhNum]);
-            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
-            echo '<meta http-equiv="refresh" content="0">';
-        } catch (PDOException $e) {
-            die("<p>Query failed: {$e->getMessage()}</p>\n");
+        $conditions1 = strlen($_POST["Name"]) <= 50 && strlen($_POST["StageName"]) <= 50;
+        $conditions2 = preg_match('~[0-9]+~', $_POST["Name"]) == 0;
+        $conditions3 = empty($rows) && preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}+$/', $_POST["PhoneNumber"]) == 1 && strlen($_POST["Email"]) <= 50;
+
+        if($conditions1 && $conditions2 && $conditions3){ 
+            $Name = $_POST["Name"];
+            $PhNum = $_POST["PhoneNumber"];
+            $SName = $_POST["StageName"];
+            $Email = $_POST["Email"];
+            $Balance = $_POST["Balance"];
+
+            $sql = 'INSERT INTO Users (Name,StageName,Balance,Email,PhoneNum) VALUES (?,?,?,?,?)';
+            try {
+                $pdo = new PDO($dsn, $username, $password, $options);
+                $statement = $pdo->prepare($sql);
+                $statement->execute([$Name,$SName,$Balance,$Email,$PhNum]);
+                $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+                echo '<meta http-equiv="refresh" content="0">';
+                echo '<script> alert("Your information was added!") </script>';
+            } catch (PDOException $e) {
+                die("<p>Query failed: {$e->getMessage()}</p>\n");
+            }
+            
+        }else{
+            echo '<script> alert("Enter vaid information and follow the format!") </script>';
         }
-
-        
     }
-    
-    
- /*$ID,$Name,$SName,$Balance,$Email,$PhNum*/
+
 ?>
-
-<script>
-    function myalert() {
-        if(alert("Successfully Added Your Info!")){
-            //code to take back to home page
-            //window.location = "KaraokeMain.php";
-        }
-    }
-</script>
 
 </body>
 </html>
