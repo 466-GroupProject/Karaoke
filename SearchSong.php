@@ -125,7 +125,7 @@ if( $check || isset($_SESSION["Search"]))
         $newSong = $_SESSION["Search"];
         $Search = '%' . $newSong . '%';
     }
-    echo "<br> <h1 style='font-size:200%;'> You Searched for a Song or Title named $newSong.</h1>";
+    echo "<br> <h1 style='font-size:200%;'> You searched for the song $newSong.</h1>";
 
     if(isset($_GET["sort"]))
     {

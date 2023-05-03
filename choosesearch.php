@@ -44,7 +44,7 @@
 <h1 style="text-align: center">Welcome <?php echo $_SESSION['post-data5'];?> Balance: <?php echo $_SESSION['post-data4'];?></h1>
 <div class="btn-group">
     <form action="KaraokeMain.php" method="POST">
-        <button style="margin-right: 650px;" onclick="history.go(-1);" > Back </button>
+        <button style="margin-right: 650px;" onclick="history.go(-1);" > Sign Out </button>
     </form>
 
 </div>

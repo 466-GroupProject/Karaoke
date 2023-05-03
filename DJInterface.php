@@ -48,7 +48,7 @@
             echo "<h3> There is currently no one signed up to sing in the free queue. </h3>";
          } else {
          // print free Table
-         drawTable($rows);
+         drawTable2($rows);
          }
          
          // if button is pressed
@@ -142,7 +142,7 @@
              echo "<h3> There is currently no one signed up to sing in the priority queue. </h3>";
          }else{
              // Print priority table
-             drawTable($rows);
+             drawTable2($rows);
          }
  
          // if button is pressed and sorted by cost

@@ -44,6 +44,15 @@
   transform: translate(-160%, -50%);
 }
 
+.button4{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-290%, -50%);
+  transform: translate(-290%, -50%);
+}
+
 .btn-group button:not(:last-child) {
   border-right: none; /* Prevent double borders */
 }

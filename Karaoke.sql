@@ -1,3 +1,8 @@
+/*
+    Julio Rivera, Michael Rasmussen, Oscar Vasquez 
+	Z1979224, Z1696323, Z1968485
+	CSCI 466 PE1
+*/    
 USE z1979224;
 DROP TABLE IF EXISTS SignUp,Creates,Song,Users,Contributor;
 
@@ -34,8 +39,8 @@ CREATE TABLE SignUp (UsersID int(20) NOT NULL,
 CREATE TABLE Creates (SongID int(20) NOT NULL,
             ContributorID int(20) NOT NULL,
             Contribution CHAR(30) NOT NULL,
-            ReleaseDate CHAR(20) NULL,
-            PRIMARY KEY(ContributorID,SongID,Contribution),
+            ReleaseDate Date NULL,
+            PRIMARY KEY(ContributorID,SongID),
             FOREIGN KEY(ContributorID) REFERENCES Contributor(ContributorID),
             FOREIGN KEY(SongID) REFERENCES Song(SongID));
 

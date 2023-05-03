@@ -2,7 +2,10 @@
 
 <?php
 //database
-
+$host = 'courses';
+$dbname = 'z1979224';
+$username = 'z1979224';
+$password = '2001Oct19';
 //connect or print error
 $dsn = "mysql:host=$host;dbname=$dbname";
 $options = [
