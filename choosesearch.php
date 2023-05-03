@@ -5,11 +5,12 @@
 
     if(isset($_POST['PhoneNumPicked']))
     {
+        //var_dump($_SESSION);
         $_SESSION['post-data'] = $_POST['PhoneNumPicked'];//all data sent
         $_SESSION['post-data3'] = substr($_SESSION['post-data'],14,15);//ID
         //var_dump($_SESSION);
     }
-    $num = substr($_SESSION['post-data'],0,14);
+    $num = substr($_SESSION['post-data'],0,12);
 
     //echo "This is the num $num";
     $sql = "SELECT * 
@@ -43,7 +44,7 @@
 <h1 style="text-align: center">Welcome <?php echo $_SESSION['post-data5'];?> Balance: <?php echo $_SESSION['post-data4'];?></h1>
 <div class="btn-group">
     <form action="KaraokeMain.php" method="POST">
-        <button style="margin-right: 650px;" onclick="history.go(-1);" > Back </button>
+        <button style="margin-right: 650px;" onclick="history.go(-1);" > Sign Out </button>
     </form>
 
 </div>

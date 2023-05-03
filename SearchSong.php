@@ -6,11 +6,20 @@
     if(isset($_POST['PhoneNumPicked']))
     {
         $_SESSION['post-data'] = $_POST['PhoneNumPicked'];//all data sent
-        $_SESSION['post-data3'] = substr($_SESSION['post-data'],14,15);//ID
         //var_dump($_SESSION);
     }
 
-    $num = substr($_SESSION['post-data'],0,14);
+    if(isset($_GET['Search1'])) {
+        $_SESSION['Search'] = $_GET['Search1'];
+    }
+    
+    if (!isset($_SESSION['count'])) {
+        $_SESSION['count'] = 0;
+    } else {
+        $_SESSION['count']++;
+    }
+
+    $num = substr($_SESSION['post-data'],0,12);
 
     //echo "This is the num $num";
     $sql = "SELECT * FROM Users WHERE PhoneNum = ? ;";
@@ -27,7 +36,8 @@
             echo "<h3> There were no results for </h3>";
         }else{
             $_SESSION['post-data4'] = $rows[0]['Balance']; 
-            $_SESSION['post-data5']= $rows[0]['Name'];
+            $_SESSION['post-data5'] = $rows[0]['Name'];
+            $_SESSION['post-data3'] = $rows[0]['UsersID'];
         }
    
     }
@@ -43,8 +53,8 @@
 
 <div class="btn-group">
 
-    <form action="KaraokeMain.php" method="POST">
-        <button style="margin-right: 750px;" onclick="history.go(-1);" > Back </button>
+    <form action="ClearSession.php" method="POST">
+        <button style="margin-right: 750px;" type="submit"> Sign Out </button>
     </form>
 
     <form action="SearchContrib.php" method="POST">
@@ -66,7 +76,7 @@
 
 <div class="midnav">
     <div class="search-container">
-        <form action="SearchSong.php" method='POST'>
+        <form action="SearchSong.php" method='GET'>
             <input type="text" placeholder="Search for a Song Title" name="Search1" required>
             <button type="submit">Submit</button>
         </form>
@@ -101,14 +111,142 @@ if (!empty($_POST["AddedAmount"])) {
 
 }
 
-if( !empty($_POST["Search1"])) {
-    $newSong = $_POST["Search1"];
+$check = (isset($_GET["Search1"])) ? true : false;
 
-    $Search = '%' . $newSong . '%';
+if( $check || isset($_SESSION["Search"])) 
+{
+    if (isset($_GET["Search1"]))
+    {
+        $newSong = $_GET["Search1"];
+        $Search = '%' . $newSong . '%';
+    }
+    else
+    {
+        $newSong = $_SESSION["Search"];
+        $Search = '%' . $newSong . '%';
+    }
+    echo "<br> <h1 style='font-size:200%;'> You searched for the song $newSong.</h1>";
+
+    if(isset($_GET["sort"]))
+    {
+        $cat = $_GET["sort"];
+
+        $order = ($_SESSION['count'] % 2 == 0) ? "ASC" : "DESC";
+//  echo "order set to $order";
+
+        Switch($cat)
+        {
+            case "SongID":
+            {
+                $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                        FROM Song, Contributor, Creates 
+                        WHERE Song.SongID = Creates.SongID
+                        AND Creates.ContributorID = Contributor.ContributorID
+                        AND Title LIKE ? 
+                        ORDER BY Creates.SongID ";
+            }break;
+            case "Title":
+            {
+                $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                        FROM Song, Contributor, Creates 
+                        WHERE Song.SongID = Creates.SongID
+                        AND Creates.ContributorID = Contributor.ContributorID
+                        AND Title LIKE ? 
+                        ORDER BY Title ";
+            }break;
+            case "Artist":
+            {
+                $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                        FROM Song, Contributor, Creates 
+                        WHERE Song.SongID = Creates.SongID
+                        AND Creates.ContributorID = Contributor.ContributorID
+                        AND Title LIKE ? 
+                        ORDER BY Artist ";
+            }break;
+            case "Length":
+            {
+                $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                        FROM Song, Contributor, Creates 
+                        WHERE Song.SongID = Creates.SongID
+                        AND Creates.ContributorID = Contributor.ContributorID
+                        AND Title LIKE ? 
+                        ORDER BY Length ";
+            }break;
+            case "Genre":
+            {
+                $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                        FROM Song, Contributor, Creates 
+                        WHERE Song.SongID = Creates.SongID
+                        AND Creates.ContributorID = Contributor.ContributorID
+                        AND Title LIKE ? 
+                        ORDER BY Genre ";
+            }break;
+            case "StreamNum":
+            {
+                $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                        FROM Song, Contributor, Creates 
+                        WHERE Song.SongID = Creates.SongID
+                        AND Creates.ContributorID = Contributor.ContributorID
+                        AND Title LIKE ? 
+                        ORDER BY StreamNum ";
+            }break;
+            case "ReleaseDate":
+            {
+                $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                        FROM Song, Contributor, Creates 
+                        WHERE Song.SongID = Creates.SongID
+                        AND Creates.ContributorID = Contributor.ContributorID
+                        AND Title LIKE ? 
+                        ORDER BY ReleaseDate ";
+            }break;
+            default:
+            {
+                $SQL = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+                FROM Song, Contributor, Creates 
+                WHERE Song.SongID = Creates.SongID
+                AND Creates.ContributorID = Contributor.ContributorID
+                AND Title LIKE ?"; 
+            }
+
+        }
+        $sql .=  $order . ';';
+
+/*
+        $sql = "SELECT DISTINCT Creates.SongID, Title, Artist, Length, Genre, StreamNum, ReleaseDate  
+        FROM Song, Contributor, Creates 
+        WHERE Song.SongID = Creates.SongID
+        AND Creates.ContributorID = Contributor.ContributorID
+        AND Title LIKE ? 
+        ORDER BY ? DESC;";
+*/
+        try 
+        {
+            $pdo = new PDO($dsn, $username, $password, $options);
+            $statement = $pdo->prepare($sql);
+            $statement->execute([$Search]);
+            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+/*          print_r($cat);
+            echo "<br><br>";
+            print_r($Search);
+*/
+            
+            if(empty($rows)) 
+            {
+                echo "<h3> There were no results for $newSong </h3>";
+            }
+            else 
+            { 
+                drawSongTable($rows);
+            }
+
+            
+
+        } catch (PDOException $e) {
+           die("<p>Query failed: {$e->getMessage()}</p>\n");
+        }
+    } else {
     
-    echo "<br> <h1 style='font-size:200%;'> You Searched for a Song or Title named $newSong.</h1>";
-
-    //$sql = 'Select * FROM Song WHERE Artist = ? OR Title = ? ';
     $sql = "SELECT DISTINCT Creates.SongID, Song.*, ReleaseDate  
             FROM Song, Contributor, Creates 
             WHERE Song.SongID = Creates.SongID
@@ -121,19 +259,36 @@ if( !empty($_POST["Search1"])) {
         $statement->execute([$Search]);
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        
         if(empty($rows)) {
             echo "<h3> There were no results for $newSong </h3>";
-        }else { 
-            drawTable($rows);
         }
+        else 
+        { 
+            drawSongTable($rows);
+        }
+        
 
-	} catch (PDOException $e) {
+	} 
+    catch (PDOException $e) 
+    {
 		die("<p>Query failed: {$e->getMessage()}</p>\n");
 	}
-
-} else {
+    }
+    /*
+    if(empty($rows)) {
+        echo "<h3> There were no results for $newSong </h3>";
+    }
+    else 
+    { 
+        drawSongTable($rows);
+    }
+    */
+} 
+else {
     echo "<br> <h1 style='font-size:200%;'> Please Enter an Song or a Title. </h1>";
 }
+
 
 ?>
 
