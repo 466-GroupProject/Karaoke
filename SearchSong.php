@@ -53,8 +53,8 @@
 
 <div class="btn-group">
 
-    <form action="KaraokeMain.php" method="POST">
-        <button style="margin-right: 750px;" onclick="history.go(-1);" > Sign Out </button>
+    <form action="ClearSession.php" method="POST">
+        <button style="margin-right: 750px;" type="submit"> Sign Out </button>
     </form>
 
     <form action="SearchContrib.php" method="POST">

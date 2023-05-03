@@ -17,7 +17,7 @@ CREATE TABLE Users (UsersID int(20) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
 
 CREATE TABLE Contributor (ContributorID int(20) NOT NULL UNIQUE  PRIMARY KEY,
             Name CHAR(50) NOT NULL, 
-            BDay CHAR(20) NULL,
+            BDay Date NULL,
             Country CHAR(20) NULL);
 
 CREATE TABLE SignUp (UsersID int(20) NOT NULL,

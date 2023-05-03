@@ -9,6 +9,18 @@
         //var_dump($_SESSION);
     }
 
+    if(isset($_GET['Search1']))
+    {
+        $_SESSION['SearchC'] = $_GET['Search1'];
+    }
+
+    if (!isset($_SESSION['count'])) 
+    {
+        $_SESSION['count'] = 0;
+    } else {
+        $_SESSION['count']++;
+    }
+
     $num = substr($_SESSION['post-data'],0,12);
 
     //echo "This is the num $num";
@@ -41,8 +53,9 @@
 
 <h1 style="text-align: center">Welcome <?php echo $_SESSION['post-data5'];?> Balance: <?php echo $_SESSION['post-data4'];?> </h1>
 <div class="btn-group">
-    <form action="KaraokeMain.php" method="POST">
-        <button style="margin-right: 750px;" onclick="history.go(-1);" > Back </button>
+    
+    <form action="ClearSession.php" method="POST">
+        <button style="margin-right: 750px;" type="submit"> Sign Out </button>
     </form>
 
     <form action="SearchSong.php" method="POST">
@@ -64,7 +77,7 @@
 
 <div class="midnav">
     <div class="search-container">
-        <form action="SearchContrib.php" method='POST'>
+        <form action="SearchContrib.php" method='GET'>
             <input type="text" placeholder="Search for a Musician" name="Search1" required>
             <button type="submit">Submit</button>
         </form>
@@ -99,36 +112,104 @@ if (!empty($_POST["AddedAmount"])) {
 
 }
 
-if( !empty($_POST["Search1"])) {
-    $newSong = $_POST["Search1"];
+$check = (isset($_GET["Search1"])) ? true : false;
 
-    $Search = '%' . $newSong . '%';
+if( $check || isset($_SESSION["SearchC"])) 
+{
+    if (isset($_GET["Search1"]))
+    {
+        $newSong = $_GET["Search1"];
+        $Search = '%' . $newSong . '%';
+    }
+    else
+    {
+        $newSong = $_SESSION["SearchC"];
+        $Search = '%' . $newSong . '%';
+    }
+    echo "<br> <h1 style='font-size:200%;'> You Searched for a musician named $newSong.</h1>";
+
+    if(isset($_GET["sort"]))
+    {
+        $cat = $_GET["sort"];
+
+        if ($cat == "SongID")
+        {
+            $cat2 = "Creates.";
+            $cat3 = $cat2 . $cat;
+            $cat = $cat3;
+        }
+
+        $order = ($_SESSION['count'] % 2 == 0) ? "ASC" : "DESC";
+
+
+        $sql = "SELECT Creates.SongID, Song.*, ReleaseDate, Name, BDay, Country  
+        FROM Song, Contributor, Creates 
+        WHERE Song.SongID = Creates.SongID
+        AND Creates.ContributorID = Contributor.ContributorID
+        AND Name LIKE ?";
+        
+        $sql .= " ORDER BY " . $cat . ' ' . $order . ';';
+
+        try 
+        {
+            $pdo = new PDO($dsn, $username, $password, $options);
+            $statement = $pdo->prepare($sql);
+            $statement->execute([$Search]);
+            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+            
+            if(empty($rows)) 
+            {
+                echo "<h3> There were no results for $newSong </h3>";
+            }
+            else 
+            { 
+                drawContribTable($rows);
+            }
+
+            
+
+        }       
+        catch (PDOException $e) 
+        {
+           die("<p>Query failed: {$e->getMessage()}</p>\n");
+        }
+    }
+    else
+    {
+
     
-    echo "<br> <h1 style='font-size:200%;'> You Searched for a Musician Named $newSong.</h1>";
-
-    $sql = "SELECT * 
+    $sql = "SELECT Creates.SongID, Song.*, ReleaseDate, Name, BDay, Country 
             FROM Song, Contributor, Creates 
             WHERE Song.SongID = Creates.SongID
             AND Creates.ContributorID = Contributor.ContributorID
-            AND Name LIKE ?;";
+            AND Name LIKE ? ;";
+
 	try {
         $pdo = new PDO($dsn, $username, $password, $options);
         $statement = $pdo->prepare($sql);
         $statement->execute([$Search]);
         $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        if(empty($rows)){
+        
+        if(empty($rows)) {
             echo "<h3> There were no results for $newSong </h3>";
-        }else{
-            drawTable($rows);
+        }
+        else 
+        { 
+            drawContribTable($rows);
         }
         
-	} catch (PDOException $e) {
+
+	} 
+    catch (PDOException $e) 
+    {
 		die("<p>Query failed: {$e->getMessage()}</p>\n");
 	}
+    }
 
-} else {
-    echo "<br> <h1 style='font-size:200%;'> Please Enter an Artist or a Contributor. </h1>";
+} 
+else {
+    echo "<br> <h1 style='font-size:200%;'> Please Enter a musician. </h1>";
 }
 
 ?>

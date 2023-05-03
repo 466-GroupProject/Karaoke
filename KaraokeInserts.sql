@@ -46,74 +46,74 @@ INSERT INTO Users VALUES ('8','Tina','Big T','4','TinaSings@gmail.com','312-561-
 INSERT INTO Users VALUES ('9','Kyle','King Kyle','64','KyleJohnson89@gmail.com','224-861-0954'); 
 INSERT INTO Users VALUES ('10','Blair','Baddie B','105','BlairW@yahoo.com','847-910-9812');  
 
-INSERT INTO Contributor Values ('1','Morgan Wallen','05/13/1993','USA'); -- Last Night Singer
-INSERT INTO Contributor Values ('2','Ashley','04/29/1977','USA'); -- Last Night Writter
-INSERT INTO Contributor Values ('3','Joey Moi','1975','Canada'); -- Last Night Producer
-INSERT INTO Contributor Values ('4','SZA (Solána Rowe)','11/08/1989','USA'); -- Kill Bill Singer and Writter
-INSERT INTO Contributor Values ('5','Carter Lang','N/A','N/A'); -- Kill Bill Writter and Producer
-INSERT INTO Contributor Values ('6','Doja Cat (Amala Dlamini)','10/21/1995','USA'); -- Kill Bill Singer
-INSERT INTO Contributor Values ('7','Miley Cyrus','11/23/1992','USA'); -- Flowers Singer and Writer
-INSERT INTO Contributor Values ('8','Kid Harpoon','04/20/1982','England'); -- Flowers Producer
-INSERT INTO Contributor Values ('9','Michael Pollack','04/26/1994','USA'); -- Flowers Writter
-INSERT INTO Contributor Values ('10','Metro Boomin (Leland Wayne)','09/16/1993','USA'); -- Creepin' Producer
-INSERT INTO Contributor Values ('11','The Weekend (Abel Tesfaye)','02/16/1990','Canada'); -- Creepin' Singer and Writter - Die For You Singer
-INSERT INTO Contributor Values ('12','21 Savage (Shéyaa Abraham-Joseph)','10/22/1992','England'); -- Creepin' Singer and Writter
-INSERT INTO Contributor Values ('13','DaHeala (Jason Quenneville)','02/23/1982','Canada'); -- Creepin' Producer and Writter
-INSERT INTO Contributor Values ('14','Doc McKinney','08/27/1971','Canada'); -- Die For You Writter and Producer
-INSERT INTO Contributor Values ('15','Cirkut (Henry Walter)','04/23/1986','Canada'); -- Die For You Producer
-INSERT INTO Contributor Values ('16','PinkPantheress','04/18/2001','England'); -- Boy's a Liar Pt. 2 Writter and Producer
-INSERT INTO Contributor Values ('17','Ice Spice (Isis Naija Gaston)','01/01/2000','USA'); -- Boy's a Liar Pt. 2 Writter and Singer
-INSERT INTO Contributor Values ('18','Mura Masa (Alexander Crossan)','04/05/1996','England'); -- Boy's a Liar Pt. 2 Writter
-INSERT INTO Contributor Values ('19','Rema (Divine Ikubor)','05/01/2000','Nigeria'); -- Calm Down Singer and Writter
-INSERT INTO Contributor Values ('20','Selena Gomez','07/22/1992','USA'); -- Calm Down Singer and Writter
-INSERT INTO Contributor Values ('21','London (Michael Hunter)','1999','England'); -- Calm Down Producer
-INSERT INTO Contributor Values ('22','Taylor Swift','12/13/1989','USA'); -- Anti-Hero Singer and Producer and Writter
-INSERT INTO Contributor Values ('23','Jack Antonoff','03/31/1984','USA'); -- Anti-Hero Writter and Producer
-INSERT INTO Contributor Values ('24','Coi Leray (Coi Collins)','05/11/1997','USA'); -- Players Singer and writter
-INSERT INTO Contributor Values ('25','Johnny Goldstien','01/29/1991','Israel'); -- Players Producer and writter
-INSERT INTO Contributor Values ('26','Duke Bootee (Edward Fletcher)','06/06/1951','USA'); -- Players Writter
-INSERT INTO Contributor Values ('27','Bailey Zimmerman','01/27/2000','USA'); -- Rock and a Hard Place Singer
-INSERT INTO Contributor Values ('28','Heath Warren','N/A','USA'); -- Rock and a Hard Place Writter
-INSERT INTO Contributor Values ('29','Austin Shawn','N/A','USA'); -- Rock and a Hard Place Producer
-INSERT INTO Contributor VALUES ('30', 'Zoe Kravitz', '12/01/1988', 'USA');
-INSERT INTO Contributor VALUES ('31', 'Charlie Handsome', 'NULL', 'USA');
-INSERT INTO Contributor VALUES ('32', 'Harry Styles', '02/01/1994', 'UK'); -- as it was
-INSERT INTO Contributor VALUES ('33', 'Tyler Johnson', 'NULL', 'USA');
-INSERT INTO Contributor VALUES ('34', 'Toosii', '01/09/2000', 'USA'); -- favorite song
-INSERT INTO Contributor VALUES ('35', 'Adelso', 'NULL', 'USA');
-INSERT INTO Contributor VALUES ('36', 'Tatiana Manaois', '1996', 'USA');
-INSERT INTO Contributor VALUES ('37', 'Miguel', '10/23/1985', 'USA'); -- sure thing
-INSERT INTO Contributor VALUES ('38', 'Happy Perez', 'NULL', 'USA');
-INSERT INTO Contributor VALUES ('39', 'Rod Wave', '08/27/1999', 'USA'); -- fight the feeling
-INSERT INTO Contributor VALUES ('40', 'Eslabon Armado', 'NULL', 'USA'); -- ella balia sola
-INSERT INTO Contributor VALUES ('41', 'Pedro Julian Tovar', '07/22/2002', 'USA');
-INSERT INTO Contributor VALUES ('42', 'David Guetta', '11/07/1967', 'France'); -- Im good (Blue)
-INSERT INTO Contributor VALUES ('43', 'Bebe Rexha', '08/30/1989', 'USA');
-INSERT INTO Contributor VALUES ('44', 'Kamille', 'NULL', 'UK');
-INSERT INTO Contributor VALUES ('45', 'Chris Brown', '05/05/1989', 'USA'); -- under the infulence
-INSERT INTO Contributor VALUES ('46', 'Davido', '11/21/1992', 'Nigeria');
-INSERT INTO Contributor VALUES ('47', 'Kiddominant', '07/13/1992', 'Nigeria');
-INSERT INTO Contributor VALUES ('48', 'Miranda Lambert', '11/10/1983', 'USA');
-INSERT INTO Contributor VALUES ('49', 'Sam Smith', '5/19/1995', 'UK');
-INSERT INTO Contributor VALUES ('50', 'Kim Petras', '09/27/1992', 'Germany');
-INSERT INTO Contributor VALUES ('51', 'Danielle Balbuena(070 Shake)','06/13/1997','USA');
-INSERT INTO Contributor VALUES ('52', 'Rachel Agatha Keen(Raye)','10/24/1997','USA');
-INSERT INTO Contributor VALUES ('53', 'Symere Bysil Woods(Lil Uzi Vert)', '7/31/1995', 'USA');
-INSERT INTO Contributor VALUES ('54', 'Hassan Emilio Kabande Laija(Peso Pluma)', '6/15/1999', 'Mexico');
-INSERT INTO Contributor VALUES ('55', 'Ryan Hadlock', 'N/A', 'USA');
-INSERT INTO Contributor VALUES ('56', 'Zachary Lane Bryan', '4/2/1996', 'USA');
-INSERT INTO Contributor VALUES ('57', 'Josh Hoge', 'N/A', 'USA');  -- Thank God Writter
-INSERT INTO Contributor VALUES ('58', 'Dann Huff', '11/15/1960', 'USA'); -- Thank god producer
-INSERT INTO Contributor VALUES ('59', 'Kane Allen Brown', '10/21/1993', 'USA'); -- Thank god signer
-INSERT INTO Contributor VALUES ('60', 'Dallas Wilson', ' N/A', 'USA'); -- Heart Like a Truck writter
-INSERT INTO Contributor VALUES ('61', 'Lainey Denay Wilson', '5/19/1992', 'USA'); -- Heart Like a Truck Singer
-INSERT INTO Contributor VALUES ('62', 'Aubrey Drake Graham', '10/24/1986', 'Canada'); -- Rich Flex
-INSERT INTO Contributor VALUES ('63', 'Anderson Hernandez(Vinylz)', '9/2/1989', 'USA'); -- Rich Flex Producer
-INSERT INTO Contributor VALUES ('64', 'Ariana Grande-Butera', '06/26/1993', 'USA'); -- Signer Producer
-INSERT INTO Contributor VALUES ('65', 'Luis Fonis', '04/15/1978', 'USA');  -- Despacito Writter and singer
-INSERT INTO Contributor VALUES ('66', 'Daddy Yankee', '02/03/1977', 'USA'); -- Despacito Writter and singer
-INSERT INTO Contributor VALUES ('67', 'Justin Bieber', '03/01/1994', 'Canada'); -- Despacito Writter and singer
-INSERT INTO Contributor VALUES ('68', 'Andrés Torres', 'N/A', 'Colombia'); --Despcito Producer
+INSERT INTO Contributor Values ('1','Morgan Wallen','1993-05-13','USA'); -- Last Night Singer
+INSERT INTO Contributor Values ('2','Ashley','1977-04-29','USA'); -- Last Night Writter
+INSERT INTO Contributor Values ('3','Joey Moi','1975-01-01','Canada'); -- Last Night Producer
+INSERT INTO Contributor Values ('4','SZA (Solána Rowe)','1989-11-08','USA'); -- Kill Bill Singer and Writter
+INSERT INTO Contributor Values ('5','Carter Lang',NULL,'N/A'); -- Kill Bill Writter and Producer
+INSERT INTO Contributor Values ('6','Doja Cat (Amala Dlamini)','1995-10-25','USA'); -- Kill Bill Singer
+INSERT INTO Contributor Values ('7','Miley Cyrus','1992-11-23','USA'); -- Flowers Singer and Writer
+INSERT INTO Contributor Values ('8','Kid Harpoon','1982-04-20','England'); -- Flowers Producer
+INSERT INTO Contributor Values ('9','Michael Pollack','1994-04-26','USA'); -- Flowers Writter
+INSERT INTO Contributor Values ('10','Metro Boomin (Leland Wayne)','1993-09-16','USA'); -- Creepin' Producer
+INSERT INTO Contributor Values ('11','The Weekend (Abel Tesfaye)','1990-02-16','Canada'); -- Creepin' Singer and Writter - Die For You Singer
+INSERT INTO Contributor Values ('12','21 Savage (Shéyaa Abraham-Joseph)','1992-10-22','England'); -- Creepin' Singer and Writter
+INSERT INTO Contributor Values ('13','DaHeala (Jason Quenneville)','1982-02-23','Canada'); -- Creepin' Producer and Writter
+INSERT INTO Contributor Values ('14','Doc McKinney','1971-08-27','Canada'); -- Die For You Writter and Producer
+INSERT INTO Contributor Values ('15','Cirkut (Henry Walter)','1986-04-23','Canada'); -- Die For You Producer
+INSERT INTO Contributor Values ('16','PinkPantheress','2001-04-18','England'); -- Boy's a Liar Pt. 2 Writter and Producer
+INSERT INTO Contributor Values ('17','Ice Spice (Isis Naija Gaston)','2000-01-01','USA'); -- Boy's a Liar Pt. 2 Writter and Singer
+INSERT INTO Contributor Values ('18','Mura Masa (Alexander Crossan)','1996-04-05','England'); -- Boy's a Liar Pt. 2 Writter
+INSERT INTO Contributor Values ('19','Rema (Divine Ikubor)','2000-05-01','Nigeria'); -- Calm Down Singer and Writter
+INSERT INTO Contributor Values ('20','Selena Gomez','1992-07-22','USA'); -- Calm Down Singer and Writter
+INSERT INTO Contributor Values ('21','London (Michael Hunter)','1999-01-01','England'); -- Calm Down Producer
+INSERT INTO Contributor Values ('22','Taylor Swift','1989-12-13','USA'); -- Anti-Hero Singer and Producer and Writter
+INSERT INTO Contributor Values ('23','Jack Antonoff','1984-03-31','USA'); -- Anti-Hero Writter and Producer
+INSERT INTO Contributor Values ('24','Coi Leray (Coi Collins)','1997-05-11','USA'); -- Players Singer and writter
+INSERT INTO Contributor Values ('25','Johnny Goldstien','1991-01-29','Israel'); -- Players Producer and writter
+INSERT INTO Contributor Values ('26','Duke Bootee (Edward Fletcher)','1951-06-06','USA'); -- Players Writter
+INSERT INTO Contributor Values ('27','Bailey Zimmerman','2000-01-27','USA'); -- Rock and a Hard Place Singer
+INSERT INTO Contributor Values ('28','Heath Warren',NULL,'USA'); -- Rock and a Hard Place Writter
+INSERT INTO Contributor Values ('29','Austin Shawn',NULL,'USA'); -- Rock and a Hard Place Producer
+INSERT INTO Contributor VALUES ('30', 'Zoe Kravitz', '1988-12-01', 'USA');
+INSERT INTO Contributor VALUES ('31', 'Charlie Handsome', NULL, 'USA');
+INSERT INTO Contributor VALUES ('32', 'Harry Styles', '1994-02-01', 'UK'); -- as it was
+INSERT INTO Contributor VALUES ('33', 'Tyler Johnson', NULL, 'USA');
+INSERT INTO Contributor VALUES ('34', 'Toosii', '2000-01-09', 'USA'); -- favorite song
+INSERT INTO Contributor VALUES ('35', 'Adelso', NULL, 'USA');
+INSERT INTO Contributor VALUES ('36', 'Tatiana Manaois', '1996-01-01', 'USA');
+INSERT INTO Contributor VALUES ('37', 'Miguel', '1985-10-23', 'USA'); -- sure thing
+INSERT INTO Contributor VALUES ('38', 'Happy Perez', NULL, 'USA');
+INSERT INTO Contributor VALUES ('39', 'Rod Wave', '1999-08-27', 'USA'); -- fight the feeling
+INSERT INTO Contributor VALUES ('40', 'Eslabon Armado', NULL, 'USA'); -- ella balia sola
+INSERT INTO Contributor VALUES ('41', 'Pedro Julian Tovar', '2002-07-22', 'USA');
+INSERT INTO Contributor VALUES ('42', 'David Guetta', '1967-11-07', 'France'); -- Im good (Blue)
+INSERT INTO Contributor VALUES ('43', 'Bebe Rexha', '1989-08-30', 'USA');
+INSERT INTO Contributor VALUES ('44', 'Kamille', NULL, 'UK');
+INSERT INTO Contributor VALUES ('45', 'Chris Brown', '1989-05-05', 'USA'); -- under the infulence
+INSERT INTO Contributor VALUES ('46', 'Davido', '1992-11-21', 'Nigeria');
+INSERT INTO Contributor VALUES ('47', 'Kiddominant', '1992-07-13', 'Nigeria');
+INSERT INTO Contributor VALUES ('48', 'Miranda Lambert', '1983-11-10', 'USA');
+INSERT INTO Contributor VALUES ('49', 'Sam Smith', '1995-05-19', 'UK');
+INSERT INTO Contributor VALUES ('50', 'Kim Petras', '1992-09-27', 'Germany');
+INSERT INTO Contributor VALUES ('51', 'Danielle Balbuena(070 Shake)', '1997-06-13','USA');
+INSERT INTO Contributor VALUES ('52', 'Rachel Agatha Keen(Raye)','1997-10-24','USA');
+INSERT INTO Contributor VALUES ('53', 'Symere Bysil Woods(Lil Uzi Vert)', '1995-07-31', 'USA');
+INSERT INTO Contributor VALUES ('54', 'Hassan Emilio Kabande Laija(Peso Pluma)', '1999-06-15', 'Mexico');
+INSERT INTO Contributor VALUES ('55', 'Ryan Hadlock', NULL, 'USA');
+INSERT INTO Contributor VALUES ('56', 'Zachary Lane Bryan', '1996-04-02', 'USA');
+INSERT INTO Contributor VALUES ('57', 'Josh Hoge', NULL, 'USA');  -- Thank God Writter
+INSERT INTO Contributor VALUES ('58', 'Dann Huff', '1960-11-15', 'USA'); -- Thank god producer
+INSERT INTO Contributor VALUES ('59', 'Kane Allen Brown', '1993-10-21', 'USA'); -- Thank god signer
+INSERT INTO Contributor VALUES ('60', 'Dallas Wilson', NULL, 'USA'); -- Heart Like a Truck writter
+INSERT INTO Contributor VALUES ('61', 'Lainey Denay Wilson', '1992-05-19', 'USA'); -- Heart Like a Truck Singer
+INSERT INTO Contributor VALUES ('62', 'Aubrey Drake Graham', '1986-10-24', 'Canada'); -- Rich Flex
+INSERT INTO Contributor VALUES ('63', 'Anderson Hernandez(Vinylz)', '1989-09-02', 'USA'); -- Rich Flex Producer
+INSERT INTO Contributor VALUES ('64', 'Ariana Grande-Butera', '1993-06-26', 'USA'); -- Signer Producer
+INSERT INTO Contributor VALUES ('65', 'Luis Fonis', '1978-04-15', 'USA');  -- Despacito Writter and singer
+INSERT INTO Contributor VALUES ('66', 'Daddy Yankee', '1977-02-03', 'USA'); -- Despacito Writter and singer
+INSERT INTO Contributor VALUES ('67', 'Justin Bieber', '1994-03-01', 'Canada'); -- Despacito Writter and singer
+INSERT INTO Contributor VALUES ('68', 'Andrés Torres', NULL, 'Colombia'); --Despcito Producer
 
 INSERT INTO SignUp VALUES ('1','1','2023-04-29 13:54:00','F',NULL, 1.0, 'Solo'); 
 INSERT INTO SignUp VALUES ('1','10','2023-04-29 13:55:00','P','1', 10.5, 'Duet');
